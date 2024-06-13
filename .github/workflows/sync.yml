@@ -46,11 +46,12 @@ jobs:
     - name: New commits found
       if: steps.sync.outputs.has_new_commits == 'true'
       run: echo "New commits were found to sync."
-    
+
     - name: No new commits
       if: steps.sync.outputs.has_new_commits == 'false'
       run: echo "There were no new commits."
       
-    - name: Show value of 'has_new_commits'
+    - name: Show the value of 'new_commits'
+      if: steps.sync.outputs.has_new_commits == 'true'
       run: echo ${{ steps.sync.outputs.has_new_commits }}
       

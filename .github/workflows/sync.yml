@@ -32,7 +32,7 @@ jobs:
         target_sync_branch: main
         target_repo_token: ${{ secrets.GITHUB_TOKEN }}
         upstream_sync_branch: main
-        upstream_sync_repo: j-hc/revanced-magisk-module
+        upstream_sync_repo: revanced-apks/build-apps
 
         # Set test_mode true during manual dispatch to run tests instead of the true action!!
         test_mode: ${{ inputs.sync_test_mode }}

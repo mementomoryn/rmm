@@ -8,8 +8,8 @@ jobs:
   merge-upstream:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - name: Sync Repo
-        run: gh repo sync ${{ github.repository }} -b testing -s revanced-apks/build-apps
+        run: gh repo sync ${{ github.repository }} -b main --source revanced-apks/build-apps
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT }}

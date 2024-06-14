@@ -18,6 +18,7 @@ jobs:
     - name: Checkout target repo
       uses: actions/checkout@v4
       with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         # optional: set the branch to checkout,
         # sync action checks out your 'target_sync_branch' anyway
         ref:  main
@@ -43,6 +44,3 @@ jobs:
     - name: No new commits
       if: steps.sync.outputs.has_new_commits == 'false'
       run: echo "There were no new commits."
-    - name: Show the value of 'new_commits'
-      if: steps.sync.outputs.has_new_commits == 'true'
-      run: echo ${{ steps.sync.outputs.has_new_commits }}

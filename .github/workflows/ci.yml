@@ -40,14 +40,16 @@ jobs:
 
     outputs:
       SHOULD_BUILD: ${{ steps.should_build.outputs.SHOULD_BUILD }}
-
-  token:
+    
+  build:
     permissions: write-all
     needs: check
     runs-on: ubuntu-latest
     if: ${{ needs.check.outputs.SHOULD_BUILD == 1 }}
     steps:
+      - name: Token
       - uses: actions/checkout@v4
+      
       - name: Infinity
         uses: jacobtomlinson/gha-find-replace@v3
         with:
@@ -74,10 +76,8 @@ jobs:
           include: "options.json"
           exclude: .
           regex: false
-
-  build:
-    permissions: write-all
-    needs: check
-    uses: ./.github/workflows/build.yml
-    if: ${{ needs.check.outputs.SHOULD_BUILD == 1 }}
-    secrets: inherit
+      
+      - name: Patch
+        uses: ./.github/workflows/build.yml
+        with:
+         secrets: inherit

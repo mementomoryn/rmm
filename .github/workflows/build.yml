@@ -24,6 +24,13 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
+          
+      - name: Replace Token
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "${INFINITY_OAUTH_TOKEN}"
+          replace: ${{ secrets.INFINITY_OAUTH_TOKEN }}
+          regex: false
 
       - name: Update config
         if: ${{ inputs.from_ci }}

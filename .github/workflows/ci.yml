@@ -40,8 +40,8 @@ jobs:
 
     outputs:
       SHOULD_BUILD: ${{ steps.should_build.outputs.SHOULD_BUILD }}
-    
-  build:
+
+  token:
     permissions: write-all
     needs: check
     runs-on: ubuntu-latest
@@ -76,8 +76,10 @@ jobs:
           include: "options.json"
           exclude: .
           regex: false
-      
-      - name: Patch
-        uses: ./.github/workflows/build.yml
-        with:
-         secrets: inherit
+    
+  build:
+    permissions: write-all
+    needs: check
+    uses: ./.github/workflows/build.yml
+    if: ${{ needs.check.outputs.SHOULD_BUILD == 1 }}
+    secrets: inherit

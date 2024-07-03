@@ -25,11 +25,11 @@ jobs:
           fetch-depth: 0
           submodules: true
           
-      - name: Replace Token
+      - name: Replace client_id oauth token
         uses: jacobtomlinson/gha-find-replace@v3
         with:
-          find: "${INFINITY_OAUTH_TOKEN}"
-          replace: ${{ secrets.INFINITY_OAUTH_TOKEN }}
+          find: "${REDDIT_CLIENT_ID_OAUTH_TOKEN}"
+          replace: ${{ secrets.REDDIT_CLIENT_ID_OAUTH_TOKEN }}
           regex: false
 
       - name: Update config

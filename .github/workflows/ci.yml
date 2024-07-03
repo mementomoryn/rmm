@@ -40,22 +40,6 @@ jobs:
 
     outputs:
       SHOULD_BUILD: ${{ steps.should_build.outputs.SHOULD_BUILD }}
-
-  token:
-    permissions: write-all
-    needs: check
-    runs-on: ubuntu-latest
-    if: ${{ needs.check.outputs.SHOULD_BUILD == 1 }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Infinity Token
-        uses: jacobtomlinson/gha-find-replace@v3
-        with:
-          find: "${INFINITY_OAUTH_TOKEN}"
-          replace: ${{ secrets.INFINITY_OAUTH_TOKEN }}
-          regex: false
     
   build:
     permissions: write-all

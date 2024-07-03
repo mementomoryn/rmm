@@ -47,6 +47,9 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ needs.check.outputs.SHOULD_BUILD == 1 }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Infinity Token
         uses: jacobtomlinson/gha-find-replace@v3
         with:

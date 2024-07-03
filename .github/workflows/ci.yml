@@ -47,10 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ needs.check.outputs.SHOULD_BUILD == 1 }}
     steps:
-      - name: Token
-      - uses: actions/checkout@v4
-      
-      - name: Infinity
+      - name: Infinity Token
         uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: "${ INFINITY_OAUTH_TOKEN }"
@@ -59,7 +56,7 @@ jobs:
           exclude: .
           regex: false
 
-      - name: Sync
+      - name: Sync Token
         uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: "${ SYNC_OAUTH_TOKEN }"
@@ -68,7 +65,7 @@ jobs:
           exclude: .
           regex: false
 
-      - name: Boost
+      - name: Boost Token
         uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: "${ BOOST_OAUTH_TOKEN }"

@@ -53,28 +53,8 @@ jobs:
       - name: Infinity Token
         uses: jacobtomlinson/gha-find-replace@v3
         with:
-          find: "${ INFINITY_OAUTH_TOKEN }"
+          find: "${INFINITY_OAUTH_TOKEN}"
           replace: ${{ secrets.INFINITY_OAUTH_TOKEN }}
-          include: "options.json"
-          exclude: .
-          regex: false
-
-      - name: Sync Token
-        uses: jacobtomlinson/gha-find-replace@v3
-        with:
-          find: "${ SYNC_OAUTH_TOKEN }"
-          replace: ${{ secrets.SYNC_OAUTH_TOKEN }}
-          include: "options.json"
-          exclude: .
-          regex: false
-
-      - name: Boost Token
-        uses: jacobtomlinson/gha-find-replace@v3
-        with:
-          find: "${ BOOST_OAUTH_TOKEN }"
-          replace: ${{ secrets.BOOST_OAUTH_TOKEN }}
-          include: "options.json"
-          exclude: .
           regex: false
     
   build:

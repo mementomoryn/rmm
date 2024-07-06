@@ -46,7 +46,7 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 
 <br>
 
-## How to use your own configurations
+## Use your own configurations
 
  * Generate new repository with this [template](https://github.com/new?template_name=rv-builder&template_owner=mementomoryn)
  * Customize [`config.toml`](./config.toml), for more info check [`CONFIG.md`](./CONFIG.md)

@@ -12,14 +12,14 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 
 <br>
 
+[![GitHub Stargazers](https://img.shields.io/badge/Stargazers-Link-%23444444?style=for-the-badge&logo=github&label=Stargazers&labelColor=%23444444&color=%239858B8)
+](../../stargazers)
+
 [![GitHub Commits](https://img.shields.io/badge/Commits-Link-%23444444?style=for-the-badge&logo=github&label=Commits&labelColor=%23444444&color=%239858B8)](../../commits)
 
 [![GitHub Forks](https://img.shields.io/badge/Forks-Link-%23444444?style=for-the-badge&logo=github&label=Forks&labelColor=%23444444&color=%239858B8)](../../forks)
 
 [![GitHub Pulls](https://img.shields.io/badge/Pulls-Link-%23444444?style=for-the-badge&logo=github&label=Pulls&labelColor=%23444444&color=%239858B8)](../../pulls)
-
-[![GitHub Stargazers](https://img.shields.io/badge/Stargazers-Link-%23444444?style=for-the-badge&logo=github&label=Stargazers&labelColor=%23444444&color=%239858B8)
-](../../stargazers)
 
 <br>
 

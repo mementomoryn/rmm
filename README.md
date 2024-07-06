@@ -58,5 +58,4 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
  * Customize [`options.json`](./options.json) based on `patches.json` of your ReVanced variant.
  * Replace [`ks.keystore`](./ks.keystore) with your own keystore
    * Update keystore info in [`utils.sh`](./utils.sh) at line `309` inside `patch_apk()`
- * Run the build [workflow](../../actions/workflows/build.yml)
- * Grab the APKs from [releases](../../releases)
+ * Run the build [workflow](../../actions/workflows/build.yml) to patch new releases

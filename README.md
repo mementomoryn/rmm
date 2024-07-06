@@ -49,7 +49,7 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 ## How to use your own configurations
 
  * Generate new repository with this [template](https://github.com/new?template_name=rv-builder&template_owner=mementomoryn)
- * Customize your own custom [`config.toml`](./config.toml)
+ * Customize [`config.toml`](./config.toml)
  * Customize [`options.json`](./options.json) based on `patches.json`
  * Replace `ks.keystore` with your own if you want to
  * Go to [Actions permissions](../../settings/actions), search for _Workflow permissions_ then:

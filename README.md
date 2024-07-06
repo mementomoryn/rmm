@@ -8,7 +8,7 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 
 <br>
 
-### Activity
+## Activity
 
 <br>
 
@@ -21,12 +21,9 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 [![GitHub Stargazers](https://img.shields.io/badge/Stargazers-Link-%23444444?style=for-the-badge&logo=github&label=Stargazers&labelColor=%23444444&color=%239858B8)
 ](../../stargazers)
 
-[![GitHub Release](https://img.shields.io/badge/Releases-Link-%23444444?style=for-the-badge&logo=github&label=Releases&labelColor=%23444444&color=%239858B8)
-](../../releases)
-
 <br>
 
-### Workflow
+## Workflow
 
 <br>
 
@@ -45,6 +42,20 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 </div>
 
 <br>
+
+## Installation
+
+#### GitHub
+
+[![GitHub Latest Release](https://img.shields.io/badge/Latest-%23444444?style=for-the-badge&logo=github&logoColor=white)
+](../../releases/latest)
+&nbsp;
+[![GitHub Release](https://img.shields.io/badge/Release-%23444444?style=for-the-badge&logo=github&logoColor=white)
+](../../releases)
+
+#### Obtainium
+[![Obtainium App Download](https://img.shields.io/badge/Obtainium-4828A0?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAYAAAA6GuKaAAAAAXNSR0IArs4c6QAAAARzQklUCAgICHwIZIgAAALHSURBVFiF7Zg9a1RBFIbfY+JXNMZGEQU1KbQKNmoshFRBLEJiqYKCIAgW+g8sFCws8gdsLIyI4oIEW1cIRvALwZQmsZBA/FpTaEIIj8V19eZm9s7cm5tdCft0O5zzzjuHM7MzV2rSZG1h9Z4QaJN098/cmNmpensIAjgC9OLmE3AcqHsBnQCHgUlgvobhKovAZKPNXvGYTGMIONEI05MrMF3lNrB+NcyVgJJjvK8A0wAvgesrNXmAaEPNJcRvOmK/FWS8yp6q9rpAszuJNsorSWVJGxMhmxxpt8LLEcRsUBRwMbQMjtyeAqs8FNeueTYCrZIWMlSiy8yWHFuuxeQASZ1m9rE6kNYeDzOKv3GMnc2o4WJc0kx8wGka6JDUk1F8K9CbGBuRNB/7PadoT5Qz6I6a2S9vFLX/cn0MJHQMeEJ02hwjdgJk0GwJWhpwJ6fpeb+6BDwI1Lvnyl/WHsBmSeeCVpdI1dJWqGXYJLUF6g2HzQz3c1T4MdBPtBd8+h2BmrPAdpdGa0KwRdLuoNVFPJJ0wcx+ZMgpB8Y9M7OKNypDFao4e84zRxBZBIczmoborjwYqB96ZR1L00luxNPBK/zHBkkloIK/p3cFapaDooCTOarsogTsqDFHKKlnc7zSXySNBlYijUFJM0QvkPaY4Q+B+S/MbDEtYMmFiegM3StpKqPRWkxLOi/ps6Qxua+wSfbHL0fBEP39XgWmC2qZUMaBLT5/3mc78FVSu6Ti32vLGTGzfl9Q0LcG4KikPkk3Vuoq1YxZ8d8+iJ5d71epNd4WbjhmvA3oXgXTA/7Zi1nANeB7AYYrRLfL+gFcYvlnhSxM1dVwzHg38DyP44YYTpg/BDzN4Pl1oz3/BegMND3kV6sjQAtwGVj4b1sjDeAd8DPhecaf2WCALuBMzPS+PDqt/pDiMLMJSRPANkkHc93mmjRZg/wGMhSvjoAjfIkAAAAASUVORK5CYII=&logoColor=white)
+](https://github.com/ImranR98/Obtainium/releases/latest)
 
 ## Use your own configurations
 

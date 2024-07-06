@@ -49,14 +49,14 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 ## Use your own configurations
 
  * Generate new repository with this [template](https://github.com/new?template_name=rv-builder&template_owner=mementomoryn)
- * Customize [`config.toml`](./config.toml), for more info check [`CONFIG.md`](./CONFIG.md)
- * Customize [`options.json`](./options.json) based on `patches.json`
- * Replace [`ks.keystore`](./ks.keystore) with your own keystore
-   * Update keystore info in [`utils.sh`](./utils.sh) at line `309` inside `patch_apk()`
  * Go to [Actions permissions](../../settings/actions), search for _Workflow permissions_ then:
    * Enable **Allow GitHub Actions to create and approve pull requests**
  * Go to [Actions secrets and variables](../../settings/secrets/actions) and create new repository secrets:
    * `REDDIT_CLIENT_ID_OAUTH_TOKEN` with value of your own [**Reddit API**](https://www.reddit.com/prefs/apps), or leave the value empty if you don't want to use `client_id` on `options.json`
    * `WORKFLOW_TOKEN` with value of your [**PAT**](https://github.com/settings/tokens) with a **_Workflow read & write_** permissions
+ * Customize [`config.toml`](./config.toml), for more info check [`CONFIG.md`](./CONFIG.md)
+ * Customize [`options.json`](./options.json) based on `patches.json` of your ReVanced variant.
+ * Replace [`ks.keystore`](./ks.keystore) with your own keystore
+   * Update keystore info in [`utils.sh`](./utils.sh) at line `309` inside `patch_apk()`
  * Run the build [workflow](../../actions/workflows/build.yml)
  * Grab the APKs from [releases](../../releases)

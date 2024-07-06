@@ -52,7 +52,7 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
  * Customize [`config.toml`](./config.toml), for more info check [`CONFIG.md`](./CONFIG.md)
  * Customize [`options.json`](./options.json) based on `patches.json`
  * Replace [`ks.keystore`](./ks.keystore) with your own keystore
-   * Update keystore info in [`utils.sh`](./utils.sh) at line `309 patch_apk()`
+   * Update keystore info in [`utils.sh`](./utils.sh) at line `309` inside `patch_apk()`
  * Go to [Actions permissions](../../settings/actions), search for _Workflow permissions_ then:
    * Enable **Allow GitHub Actions to create and approve pull requests**
  * Go to [Actions secrets and variables](../../settings/secrets/actions) and create new repository secrets:

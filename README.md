@@ -26,7 +26,7 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 
 <br>
 
-## Workflow
+### Workflow
 
 <br>
 

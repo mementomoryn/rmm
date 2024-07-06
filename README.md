@@ -8,7 +8,7 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 
 <br>
 
-## Activity
+### Activity
 
 <br>
 

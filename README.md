@@ -12,14 +12,14 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 
 <br>
 
-[![GitHub Stargazers](https://img.shields.io/badge/Stargazers-Link-%23444444?style=for-the-badge&logo=github&label=Stargazers&labelColor=%23444444&color=%239858B8)
+[![GitHub Stargazers](https://img.shields.io/badge/Stargazers-Link-444444?style=for-the-badge&logo=github&label=Stargazers&labelColor=444444&color=9858B8)
 ](../../stargazers)
 
-[![GitHub Commits](https://img.shields.io/badge/Commits-Link-%23444444?style=for-the-badge&logo=github&label=Commits&labelColor=%23444444&color=%239858B8)](../../commits)
+[![GitHub Commits](https://img.shields.io/badge/Commits-Link-444444?style=for-the-badge&logo=github&label=Commits&labelColor=444444&color=9858B8)](../../commits)
 
-[![GitHub Forks](https://img.shields.io/badge/Forks-Link-%23444444?style=for-the-badge&logo=github&label=Forks&labelColor=%23444444&color=%239858B8)](../../forks)
+[![GitHub Forks](https://img.shields.io/badge/Forks-Link-444444?style=for-the-badge&logo=github&label=Forks&labelColor=444444&color=9858B8)](../../forks)
 
-[![GitHub Pulls](https://img.shields.io/badge/Pulls-Link-%23444444?style=for-the-badge&logo=github&label=Pulls&labelColor=%23444444&color=%239858B8)](../../pulls)
+[![GitHub Pulls](https://img.shields.io/badge/Pulls-Link-444444?style=for-the-badge&logo=github&label=Pulls&labelColor=444444&color=9858B8)](../../pulls)
 
 <br>
 
@@ -27,16 +27,16 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 
 <br>
 
-[![GitHub Actions Workflow Upstream](https://img.shields.io/github/actions/workflow/status/mementomoryn/rmm/sync.yml?branch=main&style=for-the-badge&logo=github%20actions&logoColor=%23FFFFFF&label=Upstream&labelColor=%23444444&color=%23405898)
+[![GitHub Actions Workflow Upstream](https://img.shields.io/github/actions/workflow/status/mementomoryn/rmm/sync.yml?branch=main&style=for-the-badge&logo=github%20actions&logoColor=FFFFFF&label=Upstream&labelColor=444444&color=405898)
 ](https://github.com/mementomoryn/rmm/actions/workflows/sync.yml)
 
-[![GitHub Actions Workflow Template](https://img.shields.io/badge/Template-Status-%23444444?style=for-the-badge&logo=github%20actions&logoColor=%23FFFFFF&label=Template&labelColor=%23444444&color=%23405898)
+[![GitHub Actions Workflow Template](https://img.shields.io/badge/Template-Status-444444?style=for-the-badge&logo=github%20actions&logoColor=FFFFFF&label=Template&labelColor=444444&color=405898)
 ](../../actions/workflows/template_sync.yml)
 
-[![GitHub Actions Workflow Build](https://img.shields.io/badge/CI-Status-%23444444?style=for-the-badge&logo=github%20actions&logoColor=%23FFFFFF&label=Build&labelColor=%23444444&color=%23405898)
+[![GitHub Actions Workflow Build](https://img.shields.io/badge/CI-Status-444444?style=for-the-badge&logo=github%20actions&logoColor=FFFFFF&label=Build&labelColor=444444&color=405898)
 ](../../actions/workflows/build.yml)
 
-[![GitHub Actions Workflow CI](https://img.shields.io/badge/CI-Status-%23444444?style=for-the-badge&logo=github%20actions&logoColor=%23FFFFFF&label=CI&labelColor=%23444444&color=%23405898)
+[![GitHub Actions Workflow CI](https://img.shields.io/badge/CI-Status-%23444444?style=for-the-badge&logo=github%20actions&logoColor=FFFFFF&label=CI&labelColor=444444&color=405898)
 ](../../actions/workflows/ci.yml)
 
 </div>
@@ -47,10 +47,9 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 
 #### GitHub
 
-[![GitHub Latest Release](https://img.shields.io/badge/Latest-%23444444?style=for-the-badge&logo=github&logoColor=white)
+[![GitHub Latest Release](https://img.shields.io/badge/Latest-444444?style=for-the-badge&logo=github&logoColor=white)
 ](../../releases/latest)
-&nbsp;
-[![GitHub Release](https://img.shields.io/badge/Release-%23444444?style=for-the-badge&logo=github&logoColor=white)
+[![GitHub Release](https://img.shields.io/badge/Release-444444?style=for-the-badge&logo=github&logoColor=white)
 ](../../releases)
 
 #### Obtainium

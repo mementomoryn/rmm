@@ -57,6 +57,8 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 
 </div>
 
+<br>
+
 ## Use your own configurations
 
  * Generate new repository with this [template](https://github.com/new?template_name=rv-builder&template_owner=mementomoryn)

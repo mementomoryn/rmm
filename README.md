@@ -12,14 +12,14 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 
 <br>
 
-[![GitHub Stargazers](https://img.shields.io/badge/Stargazers-Link-444444?style=for-the-badge&logo=github&label=Stargazers&labelColor=444444&color=9858B8)
-](../../stargazers)
-
-[![GitHub Commits](https://img.shields.io/badge/Commits-Link-444444?style=for-the-badge&logo=github&label=Commits&labelColor=444444&color=9858B8)](../../commits)
+[![GitHub Pulls](https://img.shields.io/badge/Pulls-Link-444444?style=for-the-badge&logo=github&label=Pulls&labelColor=444444&color=9858B8)](../../pulls)
 
 [![GitHub Forks](https://img.shields.io/badge/Forks-Link-444444?style=for-the-badge&logo=github&label=Forks&labelColor=444444&color=9858B8)](../../forks)
 
-[![GitHub Pulls](https://img.shields.io/badge/Pulls-Link-444444?style=for-the-badge&logo=github&label=Pulls&labelColor=444444&color=9858B8)](../../pulls)
+[![GitHub Commits](https://img.shields.io/badge/Commits-Link-444444?style=for-the-badge&logo=github&label=Commits&labelColor=444444&color=9858B8)](../../commits)
+
+[![GitHub Stargazers](https://img.shields.io/badge/Stargazers-Link-444444?style=for-the-badge&logo=github&label=Stargazers&labelColor=444444&color=9858B8)
+](../../stargazers)
 
 <br>
 

@@ -43,6 +43,8 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 
 ## Installation
 
+<br>
+
 [![GitHub Release](https://img.shields.io/badge/GitHub-Release-444444?style=for-the-badge&logo=github&logoColor=white&labelColor=181717)
 ](../../releases)
 

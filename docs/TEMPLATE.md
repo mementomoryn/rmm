@@ -82,7 +82,11 @@ Create your new **Personal Access Token** [here](https://github.com/settings/tok
 
 > [!IMPORTANT]
 > Give the PAT these permissions:
-> * _Actions_: read & write
+> * Actions: _read & write_
+> * Contents: _read & write_
+> * Metadata: _read_
+> * Pull requests: _read & write_
+> * Workflows: _read & write_
 
  * Go to [Actions secrets and variables](../../settings/secrets/actions) and create new repository secrets:
    * If you want to use `client_id` in `options.json`, `REDDIT_CLIENT_ID_OAUTH_TOKEN` with value of your [**Reddit API**](https://www.reddit.com/prefs/apps)

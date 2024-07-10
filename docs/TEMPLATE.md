@@ -80,9 +80,10 @@ The value is used to replace the keystore info in `utils.sh`
 This secret variable is only mandatory if you want to replace `ks.keystore` with your own.
 
 > [!TIP]
-> The values must follow this template:
+> The value must follow this template:
 >
 > `--keystore-entry-password=<password> --keystore-password=<password> --signer=mementomoryn --keystore-entry-alias=<alias>`
+> Value should follow the keystore info, false info may lead to problem in signing process.
 
 ### WORKFLOW_TOKEN
 The value is used to replace the `WORKFLOW_TOKEN` in `template_sync.yml`

@@ -1,8 +1,6 @@
-# FAQ
-
 ## What is this repository?
 
-This is a fork based on [j-hc/revanced-magisk-module repo](https://github.com/j-hc/revanced-magisk-module) with a little twists/improvements of my own.
+This is a fork based on [j-hc repo](https://github.com/j-hc/revanced-magisk-module) with a little twists/improvements of my own.
 
 ## What are the difference of this fork?
 

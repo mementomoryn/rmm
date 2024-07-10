@@ -62,6 +62,8 @@ Configurations:
 ### Template Sync
 Sync the changes made on `mementomoryn/rmm` into your template repository by *pull request*.
 
+Ignore files and folders from syncing with a .templatesyncignore file
+
 **Configurations**:
 
 * Enabling **Allow GitHub Actions to create and approve pull requests** on [Actions permissions → Workflow permissions](../../../settings/actions).

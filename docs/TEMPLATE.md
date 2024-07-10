@@ -18,7 +18,7 @@ Open [`config.toml`](../config.toml), you can check [`CONFIG.md`](./CONFIG.md) f
 ### OPTIONS.json
 Open [`options.json`](../options.json), the _Key_ and _Value_ is based on `patches.json` of your ReVanced variant.
 
-[![RVMM Config Generator](https://img.shields.io/badge/RVVM%20Config-Generate-444444?style=for-the-badge&logo=github%20pages&labelColor=444444&color=222333)](https://j-hc.github.io/rvmm-config-gen/)
+[![RVMM Config Generator](https://img.shields.io/badge/RVMM%20Config-Generate-444444?style=for-the-badge&logo=github%20pages&labelColor=444444&color=222333)](https://j-hc.github.io/rvmm-config-gen/)
 
 > [!TIP]
 > Examples of `patches.json` URL: `https://github.com/<repo_owner>/<patches_repo>/patches.json`

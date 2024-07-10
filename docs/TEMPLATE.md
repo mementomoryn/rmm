@@ -128,7 +128,7 @@ This secret variable is only mandatory if you replace `ks.keystore` with your ow
 >
 > `--keystore-entry-password=<password> --keystore-password=<password> --signer=mementomoryn --keystore-entry-alias=<alias>`
 >
-> Keystore info examples:
+> Examples of keystore following the template:
 >
 > `--keystore-entry-password=s3cur3p@ssw0rd --keystore-password=s3cur3p@ssw0rd --signer=mementomoryn --keystore-entry-alias=alias`
 

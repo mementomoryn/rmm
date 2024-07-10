@@ -27,6 +27,10 @@ Also this is only supposed to be a template repository, to use this you can crea
 
 In case you have granted the access, you can also generate the template from these private repositories:
 
+* [rv-builder](https://github.com/new?template_name=rv-builder&template_owner=mementomoryn)
+* [rvx-builder](https://github.com/new?template_name=rvx-builder&template_owner=mementomoryn)
+* [rvo-builder](https://github.com/new?template_name=rvo-builder&template_owner=mementomoryn)
+
 ## ReVanced surely discouraged pre-patched APKs, so what makes this one safe?
 
 This repository is just a collection of _shell scripts_ to grab original APKs from **APKMirror**, **Uptodown**, and **Internet Archive**, then patch the grabbed APKs with **Patches**, **Integrations**, and **CLI** of your choice in `config.toml` using **GitHub Workflow Actions**.

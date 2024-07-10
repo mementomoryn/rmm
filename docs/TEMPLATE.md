@@ -109,7 +109,7 @@ This secret variable is only mandatory if you want to use spoof client for third
 ### SIGN_KEYSTORE_INFO
 The value is used to replace the keystore info in `utils.sh`
 
-This secret variable is only mandatory if you want to replace `ks.keystore` with your own.
+This secret variable is only mandatory if you replace `ks.keystore` with your own.
 
 > [!TIP]
 > The value must follow this template:

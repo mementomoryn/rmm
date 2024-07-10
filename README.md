@@ -67,7 +67,8 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
    * `REDDIT_CLIENT_ID_OAUTH_TOKEN` with value of your own [**Reddit API**](https://www.reddit.com/prefs/apps), or leave the value empty if you don't want to use `client_id` on `options.json`
    * `WORKFLOW_TOKEN` with value of your [**PAT**](https://github.com/settings/tokens) with a **_Workflow read & write_** permissions
    * `SIGN_KEYSTORE_INFO` with value of
-&nbsp;&nbsp;```
+&nbsp;&nbsp;
+```
 --keystore-entry-password=<value> --keystore-password=<value> --signer=mementomoryn --keystore-entry-alias=<value>
 ```
  * Customize [`config.toml`](./config.toml), for more info check [`CONFIG.md`](./CONFIG.md)

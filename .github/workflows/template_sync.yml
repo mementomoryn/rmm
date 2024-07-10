@@ -4,24 +4,28 @@ on:
   - cron:  "0 16 * * *"
   workflow_dispatch:
 jobs:
+  check-secret:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check WORKFLOW_TOKEN secret
+        id: workflow-token-check
+        shell: bash
+        run: |
+          if [ "${{ secrets.WORKFLOW_TOKEN }}" != '' ]; then
+            echo "available=true" >> $GITHUB_OUTPUT;
+          else
+            echo "available=false" >> $GITHUB_OUTPUT;
+          fi
+          
   repo-sync:
+    needs: check-secret
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
       repository-projects: read
+    if: ${{ needs.check-secret.outputs.available != 'false' }}
     steps:
-      - name: Check WORKFLOW_TOKEN secret
-      id: workflow-token-check
-      shell: bash
-      run: |
-        if [ "${{ secrets.WORKFLOW_TOKEN }}" != '' ]; then
-          echo "available=true" >> $GITHUB_OUTPUT;
-        else
-          echo "available=false" >> $GITHUB_OUTPUT;
-        fi
-        exit 1
-
       - name: Checkout
         uses: actions/checkout@v4
         with:

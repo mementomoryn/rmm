@@ -14,4 +14,4 @@ There is not much, but these are some that i like:
 
 This is only supposed to be a template repository, to use this you need to create your own repository with the [template maker](https://github.com/new?template_name=rmm&template_owner=mementomoryn).
 
-If you have granted the access, you can also generate the template from these repositories:
+In case you have granted the access, you can also generate the template from these repositories:

@@ -2,7 +2,7 @@
 
 ## Templates
 
-To generate a new repository based on this template, you can use:
+To generate a new repository based on this template, you can use this:
 
 [![rmm Template](https://img.shields.io/badge/rmm-Template-444444?style=for-the-badge&logo=github&labelColor=444444&color=222333)](https://github.com/new?template_name=rmm&template_owner=mementomoryn)
 
@@ -23,12 +23,20 @@ Open [`options.json`](../options.json), the _Key_ and _Value_ is based on `patch
 ## Workflows
 
 ### Build
+Build APKs and send it to create new release.
+
+Requirements
 
 ### Template Sync
 Sync the changes made on `mementomoryn/rmm` into your template repository by *pull request*.
 
 Requirements:
-* Enable **Allow GitHub Actions to create and approve pull requests** on [Actions permissions → Workflow permissions](../../settings/actions).
+* Enabling **Allow GitHub Actions to create and approve pull requests** on [Actions permissions → Workflow permissions](../../settings/actions).
+> [!WARNING]
+> The workflow will not be able to create pull request for the synced changes.
+* `WORKFLOW_TOKEN` secrets is not empty.
+> [!WARNING]
+> The workflow steps will not run when not fulfilled.
 
 
 ## Secrets

@@ -53,7 +53,7 @@ You can manually run the build [workflow → run workflow](../../../actions/work
 Configurations:
 * `REDDIT_CLIENT_ID_OAUTH_TOKEN` secrets must not be empty
 > [!WARNING]
-> Build workflow `replace client_id` steps will be skipped, when not fulfilled.
+> Build workflow `replace client-id` steps will be skipped, when not fulfilled.
 
 * `SIGN_KEYSTORE_INFO` secrets must not be empty.
 > [!WARNING]
@@ -83,11 +83,23 @@ Go to [Actions secrets and variables](../../../settings/secrets/actions) and cre
 These secrets variables values are hidden and will not be able to be viewed, after you create or edit it.
 
 ### REDDIT_CLIENT_ID_OAUTH_TOKEN
-The value is used to replace the `client_id` in `options.json`.
+The value is used to replace the `client-id` in `options.json`.
 
 Create your own **Reddit API** token [here](https://www.reddit.com/prefs/apps).
 
 This secret variable is only mandatory if you want to use spoof client for third party reddit apps in `options.json`.
+
+```
+  {
+    "patchName": "Spoof client",
+    "options": [
+      {
+        "key": "client-id",
+        "value": "${REDDIT_CLIENT_ID_OAUTH_TOKEN}"
+      }
+    ]
+  }
+```
 
 > [!IMPORTANT]
 > The redirect URI must match with third party reddit apps you want to patch.

@@ -28,9 +28,13 @@ Build APKs and send it to create new release.
 You can manually run the build [workflow → run workflow](../../../actions/workflows/build.yml).
 
 Configurations:
-* `REDDIT_CLIENT_ID_OAUTH_TOKEN` secrets is empty
+* `REDDIT_CLIENT_ID_OAUTH_TOKEN` secrets must not be empty
+> [!WARNING]
+> Build workflow `replace client_id` steps will be skipped, when not fulfilled.
 
-* SIGN_KEYSTORE_INFO secrets is empty
+* SIGN_KEYSTORE_INFO secrets must not be empty.
+> [!WARNING]
+> Build workflow `replace keystore info` steps will be skipped, when not fulfilled.
 
 ### Template Sync
 Sync the changes made on `mementomoryn/rmm` into your template repository by *pull request*.
@@ -39,15 +43,15 @@ Sync the changes made on `mementomoryn/rmm` into your template repository by *pu
 
 * Enabling **Allow GitHub Actions to create and approve pull requests** on [Actions permissions → Workflow permissions](../../../settings/actions).
 > [!CAUTION]
-> The workflow will not be able to create pull request for the synced changes.
+> The workflow will not be able to create pull request for the synced changes, when not fulfilled.
 
 * `WORKFLOW_TOKEN` does not have `workflow read & write` permissions.
 > [!CAUTION]
-> The workflow will not be able to sync changes made to the files inside `.github/workflows` folder.
+> The workflow will not be able to sync changes made to the files inside `.github/workflows` folder, when not fulfilled.
 
-* `WORKFLOW_TOKEN` secrets is empty.
+* `WORKFLOW_TOKEN` secrets must not be empty.
 > [!WARNING]
-> All workflow steps will be skipped.
+> All workflow steps will be skipped, when not fulfilled.
 
 
 ## Secrets

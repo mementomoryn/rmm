@@ -37,7 +37,7 @@ Open [`config.toml`](../config.toml), you can check [`CONFIG.md`](./CONFIG.md) f
 Open [`options.json`](../options.json), the _Key_ and _Value_ is based on `patches.json` of your ReVanced variant.
 
 > [!TIP]
-> Examples of `patches.json` URL: `https://github.com/<repo_owner>/<patches_repo>/patches.json`
+> Examples of `patches.json` URL: `https://github.com/<repo_owner>/<patches_repo>/blob/<branch>/patches.json`
 
 You can also generate both config and options with this website:
 

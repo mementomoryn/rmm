@@ -10,17 +10,20 @@ jobs:
       contents: write
       pull-requests: write
       repository-projects: read
-    env:
-      workflow_token: ${{ secrets.WORKFLOW_TOKEN }}
-    if: ${{ env.workflow_token != '' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        env:
+          workflow_token: ${{ secrets.WORKFLOW_TOKEN }}
+        if: ${{ env.workflow_token != '' }}
         with:
           token: ${{ secrets.WORKFLOW_TOKEN }}
 
       - name: Sync from template
         uses: AndreasAugustin/actions-template-sync@v2
+        env:
+          workflow_token: ${{ secrets.WORKFLOW_TOKEN }}
+        if: ${{ env.workflow_token != '' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           source_repo_path: mementomoryn/rmm

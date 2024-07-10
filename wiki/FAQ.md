@@ -2,6 +2,9 @@
 
 This is a fork based on [j-hc/revanced-magisk-module repo](https://github.com/j-hc/revanced-magisk-module) with little twists & improvements of my own.
 
+> [!NOTE]
+> This is just a personal fork. I can't guarantee you stability, because i'm only working on this when i've the time.
+
 ## What are the differences of this fork?
 
 There isn't much, but these are some features that i like:
@@ -28,6 +31,6 @@ If you're still not fully convinced, feel free to use the official way [here](ht
 
 ## How to make feature requests or contributes to the repository?
 
-I don't accept feature requests and code contributions, after all this is just a personal fork and i'm only working on it when i've the time.
+I don't accept feature requests and code contributions, after all this is just a personal fork and i'm only working on this when i've the time.
 
 If you wanted to, you can simply do it [upstream](https://github.com/j-hc/revanced-magisk-module).

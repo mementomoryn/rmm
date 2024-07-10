@@ -10,6 +10,8 @@ This is a fork based on [j-hc/revanced-magisk-module repo](https://github.com/j-
 There isn't much, but these are some features that i like:
 
 * Upstream repository sync
+> [!TIP]
+> If you want to, you can disable sync entirely from the [workflow](./github/workflows/sync.yml).
 * Secret `client_id` token
 > [!CAUTION]
 > Even though the `client_id` token is hidden on the repository. The token can still be found by decompiling the generated APKs.

@@ -25,20 +25,24 @@ Open [`options.json`](../options.json), the _Key_ and _Value_ is based on `patch
 ### Build
 Build APKs and send it to create new release.
 
-You can manually run the build [workflow](../../../actions/workflows/build.yml).
+You can manually run the build [workflow → run workflow](../../../actions/workflows/build.yml).
 
-Requirements
+Configurations:
+* 
 
 ### Template Sync
 Sync the changes made on `mementomoryn/rmm` into your template repository by *pull request*.
 
-**Requirements**:
+**Configurations**:
 * Enabling **Allow GitHub Actions to create and approve pull requests** on [Actions permissions → Workflow permissions](../../../settings/actions).
 > [!CAUTION]
 > The workflow will not be able to create pull request for the synced changes.
+* `WORKFLOW_TOKEN` does not have `workflow read & write` permissions.
+> [!CAUTION]
+> The workflow will not be able to sync changes made to the workflow files.
 * `WORKFLOW_TOKEN` secrets is not empty.
 > [!WARNING]
-> The workflow steps will not run.
+> All workflow steps will be skipped.
 
 
 ## Secrets

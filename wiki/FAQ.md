@@ -8,8 +8,8 @@ There is not much, but these are some differences that i like:
 
 * Upstream repository sync
 * Secret `client_id` token
-* > [!CAUTION]
-* > Even though the `client_id` token is unavailable on the repository. The token can still be found by decompiling the generated APKs.
+> [!CAUTION]
+> Even though the `client_id` token is unavailable on the repository. The token can still be found by decompiling the generated APKs.
 * Support replacing _signing keystore_
 
 ## Why there are no releases unlike on the [j-hc repo](https://github.com/j-hc/revanced-magisk-module)?

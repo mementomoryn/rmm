@@ -64,7 +64,7 @@ You can manually run the build [workflow → run workflow](../../../actions/work
 > Workflow `replace client-id` steps will be skipped, when not fulfilled.
 
 * `SIGN_KEYSTORE_INFO` secrets value must match the `ks.keystore` info.
-> [!WARNING]
+> [!CAUTION]
 > App signing process will fail, when not fulfilled.
 
 * `SIGN_KEYSTORE_INFO` secrets must not be empty.

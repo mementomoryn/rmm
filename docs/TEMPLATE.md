@@ -12,11 +12,11 @@ In case you have granted the access, you can also generate the template from the
 
 ## Config & Options
 
-### [CONFIG.toml](../config.toml)
-Check [`CONFIG.md`](./CONFIG.md) for more info about how to set it up.
+### CONFIG.toml
+Check [`CONFIG.md`](./CONFIG.md) for more info about how to set it up. Open [CONFIG.toml](../config.toml)
 
-### [OPTIONS.json](../options.json)
-_Key_ and _Value_ is based on `patches.json` of your ReVanced variant.
+### OPTIONS.json
+_Key_ and _Value_ is based on `patches.json` of your ReVanced variant. Open [OPTIONS.json](../options.json)
 > [!NOTE]
 > Examples of `patches.json` URL: `https://github.com/<repo_owner>/<patches_repo>/patches.json`
 

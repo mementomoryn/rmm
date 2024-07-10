@@ -18,7 +18,7 @@ This is only supposed to be a template repository, to use this you need to creat
 
 In case you have granted the access, you can also generate the template from these repositories:
 
-## ReVanced certainly discouraged pre-patched APKs, so what makes this one safe?
+## ReVanced surely discouraged pre-patched APKs, so what makes this one safe?
 
 This repository is just a collection of _shell scripts_ to grab original APKs from **APKMirror**, **Uptodown**, and **Internet** Archive then patch the grabbed APKs with **Patches**, **Integrations**, and **CLI** of your choice using **GitHub Workflow Actions**.
 

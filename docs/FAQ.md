@@ -3,7 +3,7 @@
 ## 📜 Table of contents
 
 * [What is this repository?](./FAQ.md#what-is-this-repository)
-* [Why this is forked?](./FAQ.md#what-are-the-differences-of-this-fork)
+* [What are the features of this fork?](./FAQ.md#what-are-the-features-of-this-fork)
 * [Why there are no releases?](./FAQ.md#why-there-are-no-releases-unlike-on-the-j-hc-repo)
 * [What makes this one safe?](./FAQ.md#revanced-surely-discouraged-pre-patched-apks-so-what-makes-this-one-safe)
 * [How to make feature requests or contributions?](./FAQ.md#how-to-make-feature-requests-or-contributes-to-the-repository)
@@ -15,7 +15,7 @@ This is a fork based on [j-hc/revanced-magisk-module repo](https://github.com/j-
 > [!NOTE]
 > This is just a personal fork. I can't guarantee you stability, because i'm only working on this when i've the time.
 
-## What are the differences of this fork?
+## What are the features of this fork?
 
 There isn't much, but these are some features that i like:
 
@@ -26,6 +26,7 @@ There isn't much, but these are some features that i like:
 > [!CAUTION]
 > Even though the `client_id` token is hidden on the repository. The token can still be found by decompiling the generated APKs.
 * Support replacing _signing keystore_
+* Multiple `options.json` [TODO]
 
 ## Why there are no releases unlike on the [j-hc repo](https://github.com/j-hc/revanced-magisk-module)?
 

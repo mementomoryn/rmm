@@ -54,4 +54,11 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 [![GMSCore Release](https://img.shields.io/github/v/release/revanced/gmscore?sort=date&display_name=release&style=for-the-badge&logo=google&logoColor=white&label=GMS%20Core&labelColor=2F9088&color=444444)
 ](https://github.com/ReVanced/GmsCore/releases)
 
+<br>
+
+## About
+
+[![Documentation](https://img.shields.io/badge/Documentation-Home-444444?style=for-the-badge&logo=github&logoColor=white&labelColor=444444)
+](./docs/README.md)
+
 </div>

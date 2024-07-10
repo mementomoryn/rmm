@@ -64,6 +64,6 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 ](./docs/README.md)
 
 [![License](https://img.shields.io/github/license/mementomoryn/rmm?style=for-the-badge&logo=github&logoColor=white&labelColor=444444&color=405898)
-](../../LICENSE)
+](./LICENSE)
 
 </div>

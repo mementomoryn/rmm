@@ -42,7 +42,7 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@v3
         if: ${{ env.keystore_info != '' }}
         with:
-          find: "--keystore-entry-password=123456789 --keystore-password=123456789 --signer=jhc"
+          find: "--keystore-entry-password=123456789 --keystore-password=123456789 --signer=jhc --keystore-entry-alias=jhc"
           replace: ${{ secrets.SIGN_KEYSTORE_INFO }}
           include: "utils.sh"
           regex: false

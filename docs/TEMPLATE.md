@@ -36,8 +36,8 @@ Sync the changes made on `mementomoryn/rmm` into your template repository by *pu
 
 **Configurations**:
 * Enabling **Allow GitHub Actions to create and approve pull requests** on [Actions permissions → Workflow permissions](../../../settings/actions).
-  * > [!CAUTION]
-  * > The workflow will not be able to create pull request for the synced changes.
+  > [!CAUTION]
+  > The workflow will not be able to create pull request for the synced changes.
 * `WORKFLOW_TOKEN` does not have `workflow read & write` permissions.
 > [!CAUTION]
 > The workflow will not be able to sync changes made to the files inside `.github/workflows` folder.

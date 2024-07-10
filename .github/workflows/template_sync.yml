@@ -4,7 +4,22 @@ on:
   - cron:  "0 16 * * *"
   workflow_dispatch:
 jobs:
+  check-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check WORKFLOW_TOKEN secret
+      id: workflow-token-check
+      shell: bash
+      run: |
+        if [ "${{ secrets.WORKFLOW_TOKEN }}" != '' ]; then
+          echo "available=true" >> $GITHUB_OUTPUT;
+        else
+          echo "available=false" >> $GITHUB_OUTPUT;
+        fi
+        exit 1
+
   repo-sync:
+    needs: check-secrets
     runs-on: ubuntu-latest
     permissions:
       contents: write

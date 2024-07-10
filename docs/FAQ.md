@@ -1,4 +1,4 @@
-# Frequently Asked Questions
+# ❓ Frequently Asked Questions
 
 ## What is this repository?
 

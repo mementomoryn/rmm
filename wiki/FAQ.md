@@ -4,7 +4,7 @@ This is a fork based on [j-hc/revanced-magisk-module repo](https://github.com/j-
 
 ## What are the differences of this fork?
 
-There is not much, but these are some differences that i like:
+There is not much, but these are some features that i like:
 
 * Upstream repository sync
 * Secret `client_id` token

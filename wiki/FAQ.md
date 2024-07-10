@@ -20,6 +20,6 @@ In case you have granted the access, you can also generate the template from the
 
 ## ReVanced surely discouraged pre-patched APKs, so what makes this one safe?
 
-This repository is just a collection of _shell scripts_ to grab original APKs from **APKMirror**, **Uptodown**, and **Internet** Archive then patch the grabbed APKs with **Patches**, **Integrations**, and **CLI** of your choice using **GitHub Workflow Actions**.
+This repository is just a collection of _shell scripts_ to grab original APKs from **APKMirror**, **Uptodown**, and **Internet Archive**, then patch the grabbed APKs with **Patches**, **Integrations**, and **CLI** of your choice using **GitHub Workflow Actions**.
 
 If you are still not convinced, feel free to use the official way [here](https://revanced.app/).

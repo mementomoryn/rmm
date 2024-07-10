@@ -10,6 +10,10 @@ In case you have granted the access, you can also generate the template from the
 
 [![rv-builder Template](https://img.shields.io/badge/rv%20builder-Template-444444?style=for-the-badge&logo=github&labelColor=444444&color=222333)](https://github.com/new?template_name=rv-builder&template_owner=mementomoryn)
 
+[![rvx-builder Template](https://img.shields.io/badge/rvx%20builder-Template-444444?style=for-the-badge&logo=github&labelColor=444444&color=222333)](https://github.com/new?template_name=rvx-builder&template_owner=mementomoryn)
+
+[![rvo-builder Template](https://img.shields.io/badge/rvo%20builder-Template-444444?style=for-the-badge&logo=github&labelColor=444444&color=222333)](https://github.com/new?template_name=rvo-builder&template_owner=mementomoryn)
+
 ## Config & Options
 
 ### CONFIG.toml

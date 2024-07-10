@@ -1,6 +1,6 @@
 # 💡 How to create your own template?
 
-## Generates
+## Templates
 
 To generate a new repository based on this template, you can use:
 
@@ -21,6 +21,18 @@ _Key_ and _Value_ is based on `patches.json` of your ReVanced variant.
 > Examples of `patches.json` URL: `https://github.com/<repo_owner>/<patches_repo>/patches.json`
 
 ## Workflows
+
+### Build
+
+### Template Sync
+
+## Secrets
+
+### REDDIT_CLIENT_ID_OAUTH_TOKEN
+
+### SIGN_KEYSTORE_INFO
+
+### WORKFLOW_TOKEN
 
  * Go to [Actions permissions](../../settings/actions), search for _Workflow permissions_ then:
    * Enable **Allow GitHub Actions to create and approve pull requests**

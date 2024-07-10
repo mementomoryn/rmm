@@ -14,11 +14,10 @@ In case you have granted the access, you can also generate the template from the
 ### [config.toml](./config.toml)
 Check [`CONFIG.md`](./CONFIG.md) for more info.
 
-## [options.json](./options.json)
+### [options.json](./options.json)
 _Key_ and _Value_ is based on `patches.json` of your ReVanced variant.
 > [!INFO]
 > Examples of `patches.json` url
-
 https://github.com/\<repo_owner\>/\<patches_repo\>/patches.json
 
  * Go to [Actions permissions](../../settings/actions), search for _Workflow permissions_ then:

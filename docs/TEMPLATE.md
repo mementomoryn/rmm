@@ -2,7 +2,7 @@
 
 ## Generates
 
-To generate a new repository based on this template, you can open:
+To generate a new repository based on this template, you can use:
 
 
 

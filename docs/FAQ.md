@@ -4,7 +4,7 @@
 
 * [What is this repository?](#what-is-this-repository)
 * [What are the features of this fork?](#what-are-the-features-of-this-fork)
-* [Why there are no releases?](#why-there-are-no-releases-unlike-on-the-j-hc-repo)
+* [Why there are no releases?](#why-there-are-no-releases-like-on-the-j-hc-repo)
 * [What makes this one safe?](#revanced-surely-discouraged-pre-patched-apks-so-what-makes-this-one-safe)
 * [How to make feature requests or contributions?](#how-to-make-feature-requests-or-contributes-to-the-repository)
 
@@ -28,7 +28,7 @@ There isn't much, but these are some features that i like:
 * Support replacing _signing keystore_
 * Multiple `options.json` [TODO]
 
-## Why there are no releases unlike on the [j-hc repo](https://github.com/j-hc/revanced-magisk-module)?
+## Why there are no releases like on the [j-hc repo](https://github.com/j-hc/revanced-magisk-module)?
 
 It's kind of useless to continuously run the CI workflow when nobody will use the release APKs anyway. So unless there is other reasons, it'll probably stay that way.
 

@@ -25,6 +25,8 @@ Open [`options.json`](../options.json), the _Key_ and _Value_ is based on `patch
 ### Build
 Build APKs and send it to create new release.
 
+You can manually run the build [workflow](../../actions/workflows/build.yml).
+
 Requirements
 
 ### Template Sync
@@ -36,7 +38,7 @@ Sync the changes made on `mementomoryn/rmm` into your template repository by *pu
 > The workflow will not be able to create pull request for the synced changes.
 * `WORKFLOW_TOKEN` secrets is not empty.
 > [!WARNING]
-> The workflow steps will not run when not fulfilled.
+> The workflow steps will not run.
 
 
 ## Secrets
@@ -47,8 +49,6 @@ Sync the changes made on `mementomoryn/rmm` into your template repository by *pu
 
 ### WORKFLOW_TOKEN
 
- * Go to [Actions permissions](../../settings/actions), search for _Workflow permissions_ then:
-   * Enable **Allow GitHub Actions to create and approve pull requests**
  * Go to [Actions secrets and variables](../../settings/secrets/actions) and create new repository secrets:
    * If you want to use `client_id` in `options.json`, `REDDIT_CLIENT_ID_OAUTH_TOKEN` with value of your [**Reddit API**](https://www.reddit.com/prefs/apps)
    * `WORKFLOW_TOKEN` with value of [**PAT**](https://github.com/settings/tokens) with a **_Workflow read & write_** permissions

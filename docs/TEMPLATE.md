@@ -50,10 +50,22 @@ Build APKs and send it to create new release.
 
 You can manually run the build [workflow → run workflow](../../../actions/workflows/build.yml).
 
-Configurations:
+**Precautions**:
+* `dlurl` Sources should not be rate-limited.
+> [!NOTE]
+> APKs may not be able to build, when not fulfilled. So it's better to add _fallback dlurl_.
+
+* `REDDIT_CLIENT_ID_OAUTH_TOKEN` secrets value must be valid.
+> [!CAUTION]
+> APKs patched with _client-id spoof_ will not be working fine, when not fulfilled.
+
 * `REDDIT_CLIENT_ID_OAUTH_TOKEN` secrets must not be empty
 > [!WARNING]
 > Workflow `replace client-id` steps will be skipped, when not fulfilled.
+
+* `SIGN_KEYSTORE_INFO` secrets value must match the `ks.keystore` info.
+> [!WARNING]
+> App signing process will fail, when not fulfilled.
 
 * `SIGN_KEYSTORE_INFO` secrets must not be empty.
 > [!WARNING]
@@ -64,7 +76,7 @@ Sync the changes made on `mementomoryn/rmm` into your template repository by *pu
 
 Ignore files and folders from syncing with a [`.templatesyncignore`](./.templatesyncignore) file.
 
-**Configurations**:
+**Precautions**:
 
 * Enabling **Allow GitHub Actions to create and approve pull requests** on [Actions permissions → Workflow permissions](../../../settings/actions).
 > [!CAUTION]

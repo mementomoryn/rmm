@@ -62,7 +62,7 @@ Configurations:
 ### Template Sync
 Sync the changes made on `mementomoryn/rmm` into your template repository by *pull request*.
 
-Ignore files and folders from syncing with a .templatesyncignore file
+Ignore files and folders from syncing with a [`.templatesyncignore`](./.templatesyncignore) file
 
 **Configurations**:
 

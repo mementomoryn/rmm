@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "patchName": "Spoof client",
+    "options": [
+      {
+        "key": "client-id",
+        "value": "${REDDIT_CLIENT_ID_OAUTH_TOKEN}"
+      }
+    ]
+  }
+]

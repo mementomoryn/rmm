@@ -17,7 +17,7 @@ Open [`config.toml`](../config.toml), you can check [`CONFIG.md`](./CONFIG.md) f
 
 ### OPTIONS.json
 Open [`options.json`](../options.json), the _Key_ and _Value_ is based on `patches.json` of your ReVanced variant.
-> [!NOTE]
+> [!TIP]
 > Examples of `patches.json` URL: `https://github.com/<repo_owner>/<patches_repo>/patches.json`
 
 ## Workflows
@@ -30,9 +30,9 @@ Requirements
 ### Template Sync
 Sync the changes made on `mementomoryn/rmm` into your template repository by *pull request*.
 
-Requirements:
+**Requirements**:
 * Enabling **Allow GitHub Actions to create and approve pull requests** on [Actions permissions → Workflow permissions](../../settings/actions).
-> [!WARNING]
+> [!CAUTION]
 > The workflow will not be able to create pull request for the synced changes.
 * `WORKFLOW_TOKEN` secrets is not empty.
 > [!WARNING]

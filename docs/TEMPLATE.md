@@ -17,6 +17,9 @@ Open [`config.toml`](../config.toml), you can check [`CONFIG.md`](./CONFIG.md) f
 
 ### OPTIONS.json
 Open [`options.json`](../options.json), the _Key_ and _Value_ is based on `patches.json` of your ReVanced variant.
+
+[![RVMM Config Generator](https://img.shields.io/badge/Config-Generate-444444?style=for-the-badge&logo=github-pages&labelColor=444444&color=222333)](https://j-hc.github.io/rvmm-config-gen/)
+
 > [!TIP]
 > Examples of `patches.json` URL: `https://github.com/<repo_owner>/<patches_repo>/patches.json`
 
@@ -53,10 +56,15 @@ Sync the changes made on `mementomoryn/rmm` into your template repository by *pu
 > [!WARNING]
 > All workflow steps will be skipped, when not fulfilled.
 
-
 ## Secrets
 
 ### REDDIT_CLIENT_ID_OAUTH_TOKEN
+The value is used to replace the `client_id` in `options.json`.
+
+Create your own Reddit API token [**here**](https://www.reddit.com/prefs/apps).
+
+> [!IMPORTANT]
+> The redirect URI must match with third party reddit apps you want to patch.
 
 ### SIGN_KEYSTORE_INFO
 
@@ -68,6 +76,3 @@ Sync the changes made on `mementomoryn/rmm` into your template repository by *pu
    * If you want to replace [`ks.keystore`](./ks.keystore), `SIGN_KEYSTORE_INFO` with value of the keystore info
 > [!NOTE]
 > --keystore-entry-password=\<value\> --keystore-password=\<value\> --signer=mementomoryn --keystore-entry-alias=\<value\>
- * 
- * 
- * Run the build [workflow](../../actions/workflows/build.yml) to patch new releases

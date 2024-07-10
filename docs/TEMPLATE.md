@@ -81,7 +81,8 @@ This secret variable is only mandatory if you want to replace `ks.keystore` with
 
 > [!TIP]
 > The values must follow this template:
-> * `--keystore-entry-password=<password> --keystore-password=<password> --signer=mementomoryn --keystore-entry-alias=<alias>`
+>
+> `--keystore-entry-password=<password> --keystore-password=<password> --signer=mementomoryn --keystore-entry-alias=<alias>`
 
 ### WORKFLOW_TOKEN
 The value is used to replace the `WORKFLOW_TOKEN` in `template_sync.yml`

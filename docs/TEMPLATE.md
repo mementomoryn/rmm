@@ -83,6 +83,7 @@ This secret variable is only mandatory if you want to replace `ks.keystore` with
 > The value must follow this template:
 >
 > `--keystore-entry-password=<password> --keystore-password=<password> --signer=mementomoryn --keystore-entry-alias=<alias>`
+>
 > Value should follow the keystore info, false info may lead to problem in signing process.
 
 ### WORKFLOW_TOKEN

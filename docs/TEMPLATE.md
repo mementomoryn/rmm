@@ -1,5 +1,9 @@
 # 💡 How to create your own template?
 
+## 📜 Table of contents
+
+* [Templates](#templates)
+
 ## Templates
 
 To generate a new repository based on this template, you can use this:

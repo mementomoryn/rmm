@@ -26,7 +26,9 @@ jobs:
           submodules: true
           
       - name: Replace client_id oauth token
-        if: ${{ secrets.REDDIT_CLIENT_ID_OAUTH_TOKEN }} != ''
+        env :
+          client_id: ${{ secrets.REDDIT_CLIENT_ID_OAUTH_TOKEN }}
+        if: ${{ env.client_id != '' }}
         uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: "${REDDIT_CLIENT_ID_OAUTH_TOKEN}"

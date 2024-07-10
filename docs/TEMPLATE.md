@@ -1,6 +1,6 @@
 # 💡 How to create your own template?
 
-## Generate
+## Generates
 
 To generate a new repository based on this template, you can open:
 
@@ -12,12 +12,14 @@ In case you have granted the access, you can also generate the template from the
 ## Config & Options
 
 ### [config.toml](./config.toml)
-Check [`CONFIG.md`](./CONFIG.md) for more info.
+Check [`CONFIG.md`](./CONFIG.md) for more info about how to set it up.
 
 ### [options.json](./options.json)
 _Key_ and _Value_ is based on `patches.json` of your ReVanced variant.
 > [!NOTE]
 > Examples of `patches.json` URL: `https://github.com/<repo_owner>/<patches_repo>/patches.json`
+
+## Workflows
 
  * Go to [Actions permissions](../../settings/actions), search for _Workflow permissions_ then:
    * Enable **Allow GitHub Actions to create and approve pull requests**

@@ -58,10 +58,10 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 
 ## About
 
-[![Documentation](https://img.shields.io/badge/Documentation-Home-444444?style=for-the-badge&logo=github&logoColor=white&labelColor=9858B8)
+[![Documentation](https://img.shields.io/badge/Documentation-Home-9858B8?style=for-the-badge&logo=github&logoColor=white&labelColor=444444)
 ](./docs/README.md)
 
-[![License](https://img.shields.io/github/license/mementomoryn/rmm?style=for-the-badge&logo=github&logoColor=white&labelColor=405898)
+[![License](https://img.shields.io/github/license/mementomoryn/rmm?style=for-the-badge&logo=github&logoColor=white&labelColor=444444&color=405898)
 ](../../releases)
 
 </div>

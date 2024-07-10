@@ -3,6 +3,16 @@
 ## 📜 Table of contents
 
 * [Templates](#templates)
+* [Config & Options](#config--options)
+  * [CONFIG.toml](#configtoml)
+  * [OPTIONS.json](#optionsjson)
+* [Workflows](#workflows)
+  * [Build](#build)
+  * [Template Sync](#template-sync)
+* [Secrets](#secrets)
+  * [REDDIT_CLIENT_ID_OAUTH_TOKEN](#reddit_client_id_oauth_token)
+  * [SIGN_KEYSTORE_INFO](#sign_keystore_info)
+  * [WORKFLOW_TOKEN](#workflow_token)
 
 ## Templates
 
@@ -92,7 +102,9 @@ This secret variable is only mandatory if you want to replace `ks.keystore` with
 >
 > `--keystore-entry-password=<password> --keystore-password=<password> --signer=mementomoryn --keystore-entry-alias=<alias>`
 >
-> Value should follow the keystore info, false info may lead to problem in signing process.
+> Keystore info examples:
+>
+> `--keystore-entry-password=s3cur3p@ssw0rd --keystore-password=s3cur3p@ssw0rd --signer=mementomoryn --keystore-entry-alias=alias`
 
 ### WORKFLOW_TOKEN
 The value is used to replace the `WORKFLOW_TOKEN` in `template_sync.yml`

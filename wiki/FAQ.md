@@ -4,7 +4,7 @@ This is a fork based on [j-hc/revanced-magisk-module repo](https://github.com/j-
 
 ## What are the differences of this fork?
 
-There is not much, but these are some features that i like:
+There isn't much, but these are some features that i like:
 
 * Upstream repository sync
 * Secret `client_id` token
@@ -14,12 +14,20 @@ There is not much, but these are some features that i like:
 
 ## Why there are no releases unlike on the [j-hc repo](https://github.com/j-hc/revanced-magisk-module)?
 
-This is only supposed to be a template repository, to use this you need to create your own repository with the [template maker](https://github.com/new?template_name=rmm&template_owner=mementomoryn).
+It's kind of useless to continuously run the CI workflow when nobody will use the release APKs anyway. So unless there is other reasons, it'll probably stay that way.
 
-In case you have granted the access, you can also generate the template from these repositories:
+Also this is only supposed to be a template repository, to use this you can create your own repository with the [template maker](https://github.com/new?template_name=rmm&template_owner=mementomoryn).
+
+In case you have granted the access, you can also generate the template from these private repositories:
 
 ## ReVanced surely discouraged pre-patched APKs, so what makes this one safe?
 
 This repository is just a collection of _shell scripts_ to grab original APKs from **APKMirror**, **Uptodown**, and **Internet Archive**, then patch the grabbed APKs with **Patches**, **Integrations**, and **CLI** of your choice using **GitHub Workflow Actions**.
 
-If you are still not convinced, feel free to use the official way [here](https://revanced.app/).
+If you're still not fully convinced, feel free to use the official way [here](https://revanced.app/).
+
+## How to make feature requests or contributes to the repository?
+
+I don't accept feature requests and code contributions, because after all this is just a personal fork and i'm only working on it when i've the time.
+
+If you wanted to, you can simply do it [upstream](https://github.com/j-hc/revanced-magisk-module).

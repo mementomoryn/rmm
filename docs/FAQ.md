@@ -2,11 +2,11 @@
 
 ## 📜 Table of contents
 
-* [What is this repository?](./FAQ.md#what-is-this-repository)
-* [What are the features of this fork?](./FAQ.md#what-are-the-features-of-this-fork)
-* [Why there are no releases?](./FAQ.md#why-there-are-no-releases-unlike-on-the-j-hc-repo)
-* [What makes this one safe?](./FAQ.md#revanced-surely-discouraged-pre-patched-apks-so-what-makes-this-one-safe)
-* [How to make feature requests or contributions?](./FAQ.md#how-to-make-feature-requests-or-contributes-to-the-repository)
+* [What is this repository?](#what-is-this-repository)
+* [What are the features of this fork?](#what-are-the-features-of-this-fork)
+* [Why there are no releases?](#why-there-are-no-releases-unlike-on-the-j-hc-repo)
+* [What makes this one safe?](#revanced-surely-discouraged-pre-patched-apks-so-what-makes-this-one-safe)
+* [How to make feature requests or contributions?](#how-to-make-feature-requests-or-contributes-to-the-repository)
 
 ## What is this repository?
 

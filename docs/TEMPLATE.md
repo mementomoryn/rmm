@@ -53,11 +53,11 @@ You can manually run the build [workflow → run workflow](../../../actions/work
 Configurations:
 * `REDDIT_CLIENT_ID_OAUTH_TOKEN` secrets must not be empty
 > [!WARNING]
-> Build workflow `replace client-id` steps will be skipped, when not fulfilled.
+> Workflow `replace client-id` steps will be skipped, when not fulfilled.
 
 * `SIGN_KEYSTORE_INFO` secrets must not be empty.
 > [!WARNING]
-> Build workflow `replace keystore info` steps will be skipped, when not fulfilled.
+> Workflow `replace keystore info` steps will be skipped, when not fulfilled.
 
 ### Template Sync
 Sync the changes made on `mementomoryn/rmm` into your template repository by *pull request*.

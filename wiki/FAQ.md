@@ -28,6 +28,6 @@ If you're still not fully convinced, feel free to use the official way [here](ht
 
 ## How to make feature requests or contributes to the repository?
 
-I don't accept feature requests and code contributions, because after all this is just a personal fork and i'm only working on it when i've the time.
+I don't accept feature requests and code contributions, after all this is just a personal fork and i'm only working on it when i've the time.
 
 If you wanted to, you can simply do it [upstream](https://github.com/j-hc/revanced-magisk-module).

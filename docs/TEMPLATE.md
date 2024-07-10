@@ -32,7 +32,7 @@ Configurations:
 > [!WARNING]
 > Build workflow `replace client_id` steps will be skipped, when not fulfilled.
 
-* SIGN_KEYSTORE_INFO secrets must not be empty.
+* `SIGN_KEYSTORE_INFO` secrets must not be empty.
 > [!WARNING]
 > Build workflow `replace keystore info` steps will be skipped, when not fulfilled.
 

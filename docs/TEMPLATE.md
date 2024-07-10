@@ -85,7 +85,7 @@ Go to [Actions secrets and variables](../../../settings/secrets/actions) and cre
 These secrets variables values are hidden and will not be able to be viewed, after you create or edit it.
 
 ### REDDIT_CLIENT_ID_OAUTH_TOKEN
-The value is used to replace the `client-id` in `options.json`.
+The value is used to replace the `${REDDIT_CLIENT_ID_OAUTH_TOKEN}` in `options.json`.
 
 Create your own **Reddit API** token [here](https://www.reddit.com/prefs/apps).
 

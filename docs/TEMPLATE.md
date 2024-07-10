@@ -28,19 +28,20 @@ Build APKs and send it to create new release.
 You can manually run the build [workflow → run workflow](../../../actions/workflows/build.yml).
 
 Configurations:
-* 
+* `REDDIT_CLIENT_ID_OAUTH_TOKEN` secrets is empty
+* SIGN_KEYSTORE_INFO secrets is empty
 
 ### Template Sync
 Sync the changes made on `mementomoryn/rmm` into your template repository by *pull request*.
 
 **Configurations**:
 * Enabling **Allow GitHub Actions to create and approve pull requests** on [Actions permissions → Workflow permissions](../../../settings/actions).
-> [!CAUTION]
-> The workflow will not be able to create pull request for the synced changes.
+  * > [!CAUTION]
+  * > The workflow will not be able to create pull request for the synced changes.
 * `WORKFLOW_TOKEN` does not have `workflow read & write` permissions.
 > [!CAUTION]
-> The workflow will not be able to sync changes made to the workflow files.
-* `WORKFLOW_TOKEN` secrets is not empty.
+> The workflow will not be able to sync changes made to the files inside `.github/workflows` folder.
+* `WORKFLOW_TOKEN` secrets is empty.
 > [!WARNING]
 > All workflow steps will be skipped.
 

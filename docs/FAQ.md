@@ -1,3 +1,5 @@
+# Frequently Asked Questions
+
 ## What is this repository?
 
 This is a fork based on [j-hc/revanced-magisk-module repo](https://github.com/j-hc/revanced-magisk-module) with little twists & improvements of my own.

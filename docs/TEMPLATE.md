@@ -8,7 +8,7 @@ To generate a new repository based on this template, you can use:
 
 In case you have granted the access, you can also generate the template from these private repositories:
 
-[![rv-builder Template](https://img.shields.io/badge/rv-builder-Template-444444?style=for-the-badge&logo=github&label=Pulls&labelColor=444444&color=9858B8)](../../pulls)
+[![rv-builder Template](https://img.shields.io/badge/rv%20builder-Template-444444?style=for-the-badge&logo=github&label=Pulls&labelColor=444444&color=9858B8)](../../pulls)
 
 ## Config & Options
 

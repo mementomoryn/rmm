@@ -69,28 +69,31 @@ The value is used to replace the `client_id` in `options.json`.
 
 Create your own **Reddit API** token [here](https://www.reddit.com/prefs/apps).
 
+This secret variable is only mandatory if you want to use spoof client for third party reddit apps in `options.json`.
+
 > [!IMPORTANT]
 > The redirect URI must match with third party reddit apps you want to patch.
 
 ### SIGN_KEYSTORE_INFO
 The value is used to replace the keystore info in `utils.sh`
 
+This secret variable is only mandatory if you want to replace `ks.keystore` with your own.
+
+> [!TIP]
+> The values must follow this template:
+> `--keystore-entry-password=<password> --keystore-password=<password> --signer=mementomoryn --keystore-entry-alias=<alias>`
+
 ### WORKFLOW_TOKEN
 The value is used to replace the `WORKFLOW_TOKEN` in `template_sync.yml`
 
 Create your new **Personal Access Token** [here](https://github.com/settings/tokens?type=beta).
 
+This secret variable is only mandatory if you want to use `template_sync.yml`.
+
 > [!IMPORTANT]
-> Give the PAT these permissions:
+> Give the **PAT** these permissions:
 > * Actions: _read & write_
 > * Contents: _read & write_
 > * Metadata: _read_
 > * Pull requests: _read & write_
 > * Workflows: _read & write_
-
- * Go to [Actions secrets and variables](../../settings/secrets/actions) and create new repository secrets:
-   * If you want to use `client_id` in `options.json`, `REDDIT_CLIENT_ID_OAUTH_TOKEN` with value of your [**Reddit API**](https://www.reddit.com/prefs/apps)
-   * `WORKFLOW_TOKEN` with value of [**PAT**](https://github.com/settings/tokens) with a **_Workflow read & write_** permissions
-   * If you want to replace [`ks.keystore`](./ks.keystore), `SIGN_KEYSTORE_INFO` with value of the keystore info
-> [!NOTE]
-> --keystore-entry-password=\<value\> --keystore-password=\<value\> --signer=mementomoryn --keystore-entry-alias=\<value\>

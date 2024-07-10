@@ -60,17 +60,29 @@ Sync the changes made on `mementomoryn/rmm` into your template repository by *pu
 
 ## Secrets
 
+Go to [Actions secrets and variables](../../../settings/secrets/actions) and create new repository secrets.
+
+These secrets variables values are hidden and will not be able to be viewed, after you create or edit it.
+
 ### REDDIT_CLIENT_ID_OAUTH_TOKEN
 The value is used to replace the `client_id` in `options.json`.
 
-Create your own Reddit API token [**here**](https://www.reddit.com/prefs/apps).
+Create your own **Reddit API** token [here](https://www.reddit.com/prefs/apps).
 
 > [!IMPORTANT]
 > The redirect URI must match with third party reddit apps you want to patch.
 
 ### SIGN_KEYSTORE_INFO
+The value is used to replace the keystore info in `utils.sh`
 
 ### WORKFLOW_TOKEN
+The value is used to replace the `WORKFLOW_TOKEN` in `template_sync.yml`
+
+Create your new **Personal Access Token** [here](https://github.com/settings/tokens?type=beta).
+
+> [!IMPORTANT]
+> Give the PAT these permissions:
+> * _Actions_: read & write
 
  * Go to [Actions secrets and variables](../../settings/secrets/actions) and create new repository secrets:
    * If you want to use `client_id` in `options.json`, `REDDIT_CLIENT_ID_OAUTH_TOKEN` with value of your [**Reddit API**](https://www.reddit.com/prefs/apps)

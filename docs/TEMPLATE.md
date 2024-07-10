@@ -27,8 +27,7 @@ Open [`options.json`](../options.json), the _Key_ and _Value_ is based on `patch
 ### Template Sync
 Sync the changes made on `mementomoryn/rmm` into your template repository by *pull request*.
 
----
-
+Requirements:
 * Enable **Allow GitHub Actions to create and approve pull requests** on [Actions permissions → Workflow permissions](../../settings/actions).
 
 

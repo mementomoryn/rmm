@@ -33,6 +33,18 @@ jobs:
         with:
           find: "${REDDIT_CLIENT_ID_OAUTH_TOKEN}"
           replace: ${{ secrets.REDDIT_CLIENT_ID_OAUTH_TOKEN }}
+          include: "options.json"
+          regex: false
+
+      - name: Replace signing keystore info
+        env :
+          keystore_info: ${{ secrets.SIGN_KEYSTORE_INFO }}
+        uses: jacobtomlinson/gha-find-replace@v3
+        if: ${{ env.keystore_info != '' }}
+        with:
+          find: "--keystore-entry-password=123456789 --keystore-password=123456789 --signer=jhc"
+          replace: ${{ secrets.SIGN_KEYSTORE_INFO }}
+          include: "utils.sh"
           regex: false
 
       - name: Update config

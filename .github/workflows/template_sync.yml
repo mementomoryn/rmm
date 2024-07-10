@@ -4,8 +4,12 @@ on:
   - cron:  "0 16 * * *"
   workflow_dispatch:
 jobs:
-  check-secrets:
+  repo-sync:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: read
     steps:
       - name: Check WORKFLOW_TOKEN secret
       id: workflow-token-check
@@ -18,14 +22,6 @@ jobs:
         fi
         exit 1
 
-  repo-sync:
-    needs: check-secrets
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      repository-projects: read
-    steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:

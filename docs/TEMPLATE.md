@@ -56,7 +56,7 @@ You can manually run the build [workflow → run workflow](../../../actions/work
 **Precautions**:
 * `dlurl` Sources should not be rate-limited.
 > [!NOTE]
-> APKs may not be able to build, when not fulfilled. So it's better to add _fallback dlurl_.
+> APKs may not able to be build, when not fulfilled. So it's better to add _fallback dlurl_.
 
 * `REDDIT_CLIENT_ID_OAUTH_TOKEN` secrets value must be valid.
 > [!CAUTION]

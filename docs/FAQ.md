@@ -19,20 +19,28 @@ This is a fork based on [j-hc/revanced-magisk-module repo](https://github.com/j-
 
 There isn't much, but these are some features that i like:
 
-* Upstream repository sync
+* Repository Syncing
+  * Upstream: sync from `j-hc/revanced-magisk-module`
+  * Template: sync from `mementomoryn/rmm`
+
 > [!TIP]
-> If you want to, you can disable the sync entirely from [workflow](../../../.github/workflows/sync.yml).
-* Secret `client_id` token
+> If you want to, you can disable the repo syncing entirely from workflow.
+> * [`sync.yml`](../../../.github/workflows/sync.yml)
+> * [`template_sync.yml`](../../../.github/workflows/template_sync.yml)
+
+* Hide `client_id` token with **GitHub Secrets**
 > [!CAUTION]
-> Even though the `client_id` token is hidden on the repository. The token can still be found by decompiling the generated APKs.
-* Support replacing _signing keystore_
-* Customize `options.json` file per-app in `config.toml`
+> Even though the `client_id` token is hidden on the repository. The token can still be found in generated APKs.
+
+* Support replacing _signing keystore_ info
+
+* Use custom `options.json` file per-app in `config.toml`
 
 ## Why there are no releases like on the [j-hc repo](https://github.com/j-hc/revanced-magisk-module)?
 
 It's kind of useless to continuously run the CI workflow when nobody will use the release APKs anyway. So unless there is other reasons, it'll probably stay that way.
 
-Also this is only supposed to be a template repository, to use this you can create your own repository with the [template maker](https://github.com/new?template_name=rmm&template_owner=mementomoryn).
+Also this is only supposed to be a template repository, you can create your own repository with the [template maker](https://github.com/new?template_name=rmm&template_owner=mementomoryn).
 
 ## ReVanced surely discouraged pre-patched APKs, so what makes this one safe?
 
@@ -42,4 +50,4 @@ If you're still not fully convinced, feel free to use the official way [here](ht
 
 ## How to make feature requests or contributes to the repository?
 
-I don't accept feature requests and code contributions, if you wanted to, you can simply do it [upstream](https://github.com/j-hc/revanced-magisk-module).
+I don't accept feature requests and code contributions. If you wanted to, you can simply do it [upstream](https://github.com/j-hc/revanced-magisk-module).

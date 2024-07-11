@@ -105,7 +105,7 @@ Secrets that are already pre-configured on the workflow:
 * Sync: `SYNC_CLIENT_ID`
 * Boost: `BOOST_CLIENT_ID`
 
-The value is used to replace the `client-id` value in `options.json` with the secrets.
+The value is used to replace `client-id` value in `options.json` with the secrets.
 
 Create your own **Reddit API** token [here](https://www.reddit.com/prefs/apps).
 

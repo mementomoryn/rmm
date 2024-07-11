@@ -20,8 +20,10 @@ This is a fork based on [j-hc/revanced-magisk-module repo](https://github.com/j-
 There isn't much, but these are some features that i like:
 
 * Repository Syncing
-  * Upstream: sync from `j-hc/revanced-magisk-module`
-  * Template: sync from `mementomoryn/rmm`
+
+Upstream: sync from `j-hc/revanced-magisk-module`
+
+Template: sync from `mementomoryn/rmm`
 
 > [!TIP]
 > If you want to, you can disable the repo syncing entirely from workflow.

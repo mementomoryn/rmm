@@ -10,9 +10,9 @@
   * [Build](#build)
   * [Template Sync](#template-sync)
 * [Secrets](#secrets)
-  * [REDDIT_CLIENT_ID_OAUTH_TOKEN](#reddit_client_id_spoof)
-  * [SIGN_KEYSTORE_INFO](#sign_keystore_info)
-  * [WORKFLOW_TOKEN](#workflow_token)
+  * [Reddit Client ID Spoof](#reddit-client-id-spoof)
+  * [Sign Keystore Info](#sign-keystore-info)
+  * [Workflow Token](#workflow-token)
 
 ## Templates
 

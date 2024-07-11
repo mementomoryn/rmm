@@ -65,12 +65,9 @@ jobs:
           infinity: ${{ secrets.INFINITY_CLIENT_ID }}
           sync: ${{ secrets.SYNC_CLIENT_ID }}
           boost: ${{ secrets.BOOST_CLIENT_ID }}
+        if: ${{ env.infinity != '' || env.sync != '' || env.boost != '' }}
         run: |
-          if [${{ env.infinity != "" || env.sync != "" || env.boost != "" }]; then
-            echo "AVAILABLE=1" >> $GITHUB_OUTPUT
-          else
-            echo "AVAILABLE=0" >> $GITHUB_OUTPUT
-          fi
+          echo "AVAILABLE=1" >> $GITHUB_OUTPUT
 
       - name: Replace client_id oauth token [replace-secrets]     
         uses: cschleiden/replace-tokens@v1

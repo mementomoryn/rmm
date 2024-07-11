@@ -59,15 +59,19 @@ jobs:
 
       - name: Replace client_id oauth token [replace-secrets]
         env :
-          client_id: ${{ secrets.REDDIT_CLIENT_ID_OAUTH_TOKEN }}
+          infinity-ci: ${{ secrets.INFINITY_CLIENT_ID }}
+          sync-ci: ${{ secrets.SYNC_CLIENT_ID }}
+          boost-ci: ${{ secrets.BOOST_CLIENT_ID }}
         uses: cschleiden/replace-tokens@v1
-        if: ${{ env.client_id != '' }}
+        if: ${{ env.infinity-ci != '' || env.sync-ci != '' || env.boost-ci != '' }}
         with:
           tokenPrefix: '${'
           tokenSuffix: '}'
           files: '["*.json"]'
         env:
-          REDDIT_CLIENT_ID_OAUTH_TOKEN: ${{ secrets.REDDIT_CLIENT_ID_OAUTH_TOKEN }}
+          INFINITY_CLIENT_ID: ${{ env.infinity-ci }}
+          SYNC_CLIENT_ID: ${{ env.sync-ci }}
+          BOOST_CLIENT_ID: ${{ env.boost-ci }}
 
       - name: Replace signing keystore info [replace-secrets]
         env :

@@ -48,6 +48,14 @@ jobs:
           replace: "--options=$options_file"
           include: "utils.sh"
           regex: false
+
+      - name: Add local options_file
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "local arch_f=\"${arch// /}\""
+          replace: "local options_file=${args[options_file]}"
+          include: "utils.sh"
+          regex: false
           
       - name: Replace client_id oauth token
         env :

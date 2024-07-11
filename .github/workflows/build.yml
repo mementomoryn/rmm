@@ -24,8 +24,40 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-          
-      - name: Replace client_id oauth token
+
+      - name: Add DEF_OPTIONS_FILE [multi-options]
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "DEF_RV_BRAND=\"ReVanced\""
+          replace: "DEF_RV_BRAND=\"ReVanced\"\nDEF_OPTIONS_FILE=$(toml_get \"$main_config_t\" options-file) || DEF_OPTIONS_FILE=\"options.json\""
+          include: "build.sh"
+          regex: false
+
+      - name: Add app_args-options_file [multi-options]
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "app_args[rv_brand]=\"$DEF_RV_BRAND\""
+          replace: "app_args[rv_brand]=\"$DEF_RV_BRAND\"\napp_args[options_file]=$(toml_get \"$t\" options-file) || app_args[options_file]=\"$DEF_OPTIONS_FILE\""
+          include: "build.sh"
+          regex: false
+
+      - name: Replace options.json [multi-options]
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "--options=options.json"
+          replace: "--options=$options_file"
+          include: "utils.sh"
+          regex: false
+
+      - name: Add local options_file [multi-options]
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "local arch_f=\"${arch// /}\""
+          replace: "local arch_f=\"${arch// /}\"\nlocal options_file=${args[options_file]}"
+          include: "utils.sh"
+          regex: false
+
+      - name: Replace client_id oauth token [replace-secrets]
         env :
           client_id: ${{ secrets.REDDIT_CLIENT_ID_OAUTH_TOKEN }}
         uses: jacobtomlinson/gha-find-replace@v3
@@ -36,7 +68,7 @@ jobs:
           include: "options.json"
           regex: false
 
-      - name: Replace signing keystore info
+      - name: Replace signing keystore info [replace-secrets]
         env :
           keystore_info: ${{ secrets.SIGN_KEYSTORE_INFO }}
         uses: jacobtomlinson/gha-find-replace@v3

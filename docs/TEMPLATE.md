@@ -24,24 +24,27 @@ In case you have granted the access, you can also generate the template from the
 
 [![rv-builder Template](https://img.shields.io/badge/rv%20builder-Template-444444?style=for-the-badge&logo=github&labelColor=444444&color=222333)](https://github.com/new?template_name=rv-builder&template_owner=mementomoryn)
 
-[![rvx-builder Template](https://img.shields.io/badge/rvx%20builder-Template-444444?style=for-the-badge&logo=github&labelColor=444444&color=222333)](https://github.com/new?template_name=rvx-builder&template_owner=mementomoryn)
-
-[![rvo-builder Template](https://img.shields.io/badge/rvo%20builder-Template-444444?style=for-the-badge&logo=github&labelColor=444444&color=222333)](https://github.com/new?template_name=rvo-builder&template_owner=mementomoryn)
-
 ## Config & Options
+
+Use this github pages by **j-hc** to generate both config and options easily:
+
+[![RVMM Config Generator](https://img.shields.io/badge/RVMM%20Config-Generate-444444?style=for-the-badge&logo=github%20pages&labelColor=444444&color=222333)](https://j-hc.github.io/rvmm-config-gen/)
 
 ### CONFIG.toml
 Open [`config.toml`](../config.toml), you can check [`CONFIG.md`](../CONFIG.md) for more info about how to set it up.
+
+> [!TIP]
+> You can use different custom `options.json` file per-app by adding this:
+> 
+> `options-file = "<name>.json"`
+> 
+> Defaults to `options.json`.
 
 ### OPTIONS.json
 Open [`options.json`](../options.json), the _Key_ and _Value_ is based on `patches.json` of your ReVanced variant.
 
 > [!TIP]
 > Examples of `patches.json` URL: `https://github.com/<repo_owner>/<patches_repo>/blob/<branch>/patches.json`
-
-You can also generate both config and options with this website:
-
-[![RVMM Config Generator](https://img.shields.io/badge/RVMM%20Config-Generate-444444?style=for-the-badge&logo=github%20pages&labelColor=444444&color=222333)](https://j-hc.github.io/rvmm-config-gen/)
 
 ## Workflows
 

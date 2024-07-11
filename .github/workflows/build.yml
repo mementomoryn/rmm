@@ -53,7 +53,7 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: "local arch_f=\"${arch// /}\""
-          replace: "local options_file=${args[options_file]}"
+          replace: "local arch_f=\"${arch// /}\"\nlocal options_file=${args[options_file]}"
           include: "utils.sh"
           regex: false
           

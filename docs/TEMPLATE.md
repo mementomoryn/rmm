@@ -97,7 +97,7 @@ Ignore files and folders from syncing with a [`.templatesyncignore`](../.templat
 
 Go to [Actions secrets and variables](../../../settings/secrets/actions) and create new repository secrets.
 
-These secrets variables values are hidden and will not be able to be viewed, after you create or edit it.
+These secrets variables values are hidden and will not be able to be viewed, after you have created or edited it.
 
 ### REDDIT_CLIENT_ID_OAUTH_TOKEN
 The value is used to replace the `client-id` value in `options.json` with the secrets.

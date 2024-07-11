@@ -10,7 +10,7 @@
   * [Build](#build)
   * [Template Sync](#template-sync)
 * [Secrets](#secrets)
-  * [REDDIT_CLIENT_ID_OAUTH_TOKEN](#reddit_client_id_oauth_token)
+  * [REDDIT_CLIENT_ID_OAUTH_TOKEN](#reddit_client_id_spoof)
   * [SIGN_KEYSTORE_INFO](#sign_keystore_info)
   * [WORKFLOW_TOKEN](#workflow_token)
 
@@ -58,11 +58,11 @@ You can manually run the build [workflow → run workflow](../../../actions/work
 > [!NOTE]
 > APKs may not able to be build, when not fulfilled. So it's better to add _fallback dlurl_.
 
-* `REDDIT_CLIENT_ID_OAUTH_TOKEN` secrets value must be valid.
+* `<REDDIT>_CLIENT_ID` secrets value must be valid.
 > [!CAUTION]
 > APKs patched with _client-id spoof_ will not be working fine, when not fulfilled.
 
-* `REDDIT_CLIENT_ID_OAUTH_TOKEN` secrets must not be empty
+* `<REDDIT>_CLIENT_ID` secrets must not be empty
 > [!WARNING]
 > Workflow `replace client-id` steps will be skipped, when not fulfilled.
 
@@ -99,7 +99,12 @@ Go to [Actions secrets and variables](../../../settings/secrets/actions) and cre
 
 These secrets variables values are hidden and will not be able to be viewed, after you have created or edited it.
 
-### REDDIT_CLIENT_ID_OAUTH_TOKEN
+### Reddit Client ID Spoof
+Secrets that are already pre-configured on the workflow:
+* Infinity: `INFINITY_CLIENT_ID`
+* Sync: `SYNC_CLIENT_ID`
+* Boost: `BOOST_CLIENT_ID`
+
 The value is used to replace the `client-id` value in `options.json` with the secrets.
 
 Create your own **Reddit API** token [here](https://www.reddit.com/prefs/apps).
@@ -122,7 +127,9 @@ Create your own **Reddit API** token [here](https://www.reddit.com/prefs/apps).
 > [!IMPORTANT]
 > The redirect URI must match with third party reddit apps you want to patch.
 
-### SIGN_KEYSTORE_INFO
+### Sign Keystore Info
+`SIGN_KEYSTORE_INFO`
+
 The value is used to replace the keystore info in `utils.sh`
 
 > [!NOTE]
@@ -137,7 +144,9 @@ The value is used to replace the keystore info in `utils.sh`
 >
 > `--keystore-entry-password=s3cur3p@ssw0rd --keystore-password=s3cur3p@ssw0rd --signer=mementomoryn --keystore-entry-alias=alias`
 
-### WORKFLOW_TOKEN
+### Workflow Token
+`WORKFLOW_TOKEN`
+
 The value is used to replace the `WORKFLOW_TOKEN` in `template_sync.yml`
 
 Create your new **Personal Access Token** [here](https://github.com/settings/tokens?type=beta).

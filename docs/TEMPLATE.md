@@ -100,11 +100,12 @@ Go to [Actions secrets and variables](../../../settings/secrets/actions) and cre
 These secrets variables values are hidden and will not be able to be viewed, after you create or edit it.
 
 ### REDDIT_CLIENT_ID_OAUTH_TOKEN
-The value is used to replace the `${REDDIT_CLIENT_ID_OAUTH_TOKEN}` in `options.json`.
+The value is used to replace the `client-id` value in `options.json` with the secrets.
 
 Create your own **Reddit API** token [here](https://www.reddit.com/prefs/apps).
 
-This secret variable is only mandatory if you want to use spoof client for third party reddit apps in `options.json`.
+> [!NOTE]
+> This secret variable is only mandatory if you want to use spoof client for third party reddit apps in `options.json`.
 
 ```
   {
@@ -124,7 +125,8 @@ This secret variable is only mandatory if you want to use spoof client for third
 ### SIGN_KEYSTORE_INFO
 The value is used to replace the keystore info in `utils.sh`
 
-This secret variable is only mandatory if you replace `ks.keystore` with your own.
+> [!NOTE]
+> This secret variable is only mandatory if you replace `ks.keystore` with your own.
 
 > [!TIP]
 > The value must follow this template:
@@ -140,7 +142,8 @@ The value is used to replace the `WORKFLOW_TOKEN` in `template_sync.yml`
 
 Create your new **Personal Access Token** [here](https://github.com/settings/tokens?type=beta).
 
-This secret variable is only mandatory if you want to use `template_sync.yml`.
+> [!NOTE]
+> This secret variable is only mandatory if you want to use `template_sync.yml`.
 
 > [!IMPORTANT]
 > Give the **PAT** these permissions:

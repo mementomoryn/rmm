@@ -2,30 +2,18 @@ name: Upstream Sync
 on:
   schedule:
     - cron:  '0 16 * * 2,4,6'
-  workflow_dispatch:  # click the button on Github repo!
-    inputs:
-      sync_test_mode: # Adds a boolean option that appears during manual workflow run for easy test mode config
-        description: 'Fork Sync in Test Mode'
-        type: boolean
-        default: false
+  workflow_dispatch:
 jobs:
-  sync_latest_from_upstream:
+  upstream_sync:
     runs-on: ubuntu-latest
-    name: Sync latest commits from upstream repo
     steps:
-    # REQUIRED step
-    # Step 1: run a standard checkout action, provided by github
-    - name: Checkout target repo
+    - name: Checkout
       uses: actions/checkout@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        # optional: set the branch to checkout,
-        # sync action checks out your 'target_sync_branch' anyway
         ref:  main
-        # REQUIRED if your upstream repo is private (see wiki)
         persist-credentials: false
-    # REQUIRED step
-    # Step 2: run the sync action
+
     - name: Sync upstream changes
       id: sync
       uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
@@ -35,12 +23,10 @@ jobs:
         upstream_sync_branch: main
         upstream_sync_repo: j-hc/revanced-magisk-module
 
-        # Set test_mode true during manual dispatch to run tests instead of the true action!!
-        test_mode: ${{ inputs.sync_test_mode }}
-    # Step 3: Display a sample message based on the sync output var 'has_new_commits'
     - name: New commits found
       if: steps.sync.outputs.has_new_commits == 'true'
       run: echo "New commits were found to sync."
+
     - name: No new commits
       if: steps.sync.outputs.has_new_commits == 'false'
       run: echo "There were no new commits."

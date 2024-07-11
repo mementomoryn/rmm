@@ -1,0 +1,15 @@
+[
+  {
+    "patchName": "Custom branding icon for YouTube Music",
+    "options": [
+      {
+        "key": "AppIcon",
+        "value": "mmt"
+      },
+      {
+        "key": "ChangeSplashIcon",
+        "value": false
+      }
+    ]
+  },
+]

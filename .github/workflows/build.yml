@@ -24,6 +24,30 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
+
+      - name: Add DEF_OPTIONS_FILE
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "DEF_RV_BRAND=\"ReVanced\""
+          replace: "DEF_RV_BRAND=\"ReVanced\"\nDEF_OPTIONS_FILE=$(toml_get \"$main_config_t\" options-file) || DEF_OPTIONS_FILE=\"options.json\""
+          include: "build.sh"
+          regex: false
+
+      - name: Add app_args[options_file]
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "app_args[rv_brand]=\"$DEF_RV_BRAND\""
+          replace: "app_args[rv_brand]=\"$DEF_RV_BRAND\"\napp_args[options_file]=$(toml_get \"$t\" options-file) || app_args[options_file]=\"$DEF_OPTIONS_FILE\""
+          include: "build.sh"
+          regex: false
+
+      - name: Replace options.json
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "--options=options.json"
+          replace: "--options=$options_file"
+          include: "utils.sh"
+          regex: false
           
       - name: Replace client_id oauth token
         env :

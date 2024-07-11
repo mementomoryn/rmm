@@ -26,7 +26,7 @@ There isn't much, but these are some features that i like:
 > [!CAUTION]
 > Even though the `client_id` token is hidden on the repository. The token can still be found by decompiling the generated APKs.
 * Support replacing _signing keystore_
-* Customize `options.json` file in `config.toml` **[TODO]**
+* Customize `options.json` file per-app in `config.toml`
 
 ## Why there are no releases like on the [j-hc repo](https://github.com/j-hc/revanced-magisk-module)?
 

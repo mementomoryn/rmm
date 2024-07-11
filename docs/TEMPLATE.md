@@ -44,7 +44,19 @@ Open [`config.toml`](../config.toml), you can check [`CONFIG.md`](../CONFIG.md) 
 Open [`options.json`](../options.json), the _Key_ and _Value_ is based on `patches.json` of your ReVanced variant.
 
 > [!TIP]
-> Examples of `patches.json` URL: `https://github.com/<repo_owner>/<patches_repo>/blob/<branch>/patches.json`
+> Examples of `patches.json` URL: `https://github.com/<repo_owner>/<patches_repo>/blob/<main_branch>/patches.json`
+
+```
+  {
+    "patchName": "<patch_name>",
+    "options": [
+      {
+        "key": "<options_key_1>",
+        "value": "<options_value_1>"
+      }
+    ]
+  }
+```
 
 ## Workflows
 
@@ -56,15 +68,15 @@ You can manually run the build [workflow → run workflow](../../../actions/work
 **Precautions**:
 * `dlurl` Sources should not be rate-limited.
 > [!NOTE]
-> APKs may not able to be build, when not fulfilled. So it's better to add _fallback dlurl_.
+> APKs may not able to be build, when not fulfilled. So it's recommended to add _fallback dlurl_.
 
-* `<REDDIT>_CLIENT_ID` secrets value must be valid.
+* `<client_name>_CLIENT_ID` secrets value must be valid.
 > [!CAUTION]
-> APKs patched with _client-id spoof_ will not be working fine, when not fulfilled.
+> APKs patched with _client-id spoof_ will not work fine, when not fulfilled.
 
-* `<REDDIT>_CLIENT_ID` secrets must not be empty
+* `<client_name>_CLIENT_ID` secrets must not be empty
 > [!WARNING]
-> Workflow `replace client-id` steps will be skipped, when not fulfilled.
+> Workflow `replace client-id` steps possibly skipped, when not fulfilled.
 
 * `SIGN_KEYSTORE_INFO` secrets value must match the `ks.keystore` info.
 > [!CAUTION]
@@ -100,7 +112,10 @@ Go to [Actions secrets and variables](../../../settings/secrets/actions) and cre
 These secrets variables values are hidden and will not be able to be viewed, after you have created or edited it.
 
 ### Reddit Client ID Spoof
-Secrets that are already pre-configured on the workflow:
+> [!NOTE]
+> This secret variable is only mandatory if you want to use spoof client for third party reddit apps in `options.json`.
+
+Secrets name that are already pre-configured on the workflow:
 * Infinity: `INFINITY_CLIENT_ID`
 * Sync: `SYNC_CLIENT_ID`
 * Boost: `BOOST_CLIENT_ID`
@@ -109,8 +124,8 @@ The value is used to replace `client-id` value in `options.json` with the secret
 
 Create your own **Reddit API** token [here](https://www.reddit.com/prefs/apps).
 
-> [!NOTE]
-> This secret variable is only mandatory if you want to use spoof client for third party reddit apps in `options.json`.
+> [!IMPORTANT]
+> The `redirect URI` value must match with _third party reddit apps_ you want to patch.
 
 ```
   {
@@ -118,22 +133,19 @@ Create your own **Reddit API** token [here](https://www.reddit.com/prefs/apps).
     "options": [
       {
         "key": "client-id",
-        "value": "${<REDDIT>_CLIENT_ID}"
+        "value": "${<client_name>_CLIENT_ID}"
       }
     ]
   }
 ```
 
-> [!IMPORTANT]
-> The redirect URI must match with third party reddit apps you want to patch.
-
 ### Sign Keystore Info
-`SIGN_KEYSTORE_INFO`
-
-The value is used to replace the keystore info in `utils.sh`
-
 > [!NOTE]
 > This secret variable is only mandatory if you replace `ks.keystore` with your own.
+
+Secrets name: `SIGN_KEYSTORE_INFO`
+
+The value is used to replace the keystore info in `utils.sh`
 
 > [!TIP]
 > The value must follow this template:
@@ -145,17 +157,17 @@ The value is used to replace the keystore info in `utils.sh`
 > `--keystore-entry-password=s3cur3p@ssw0rd --keystore-password=s3cur3p@ssw0rd --signer=mementomoryn --keystore-entry-alias=alias`
 
 ### Workflow Token
-`WORKFLOW_TOKEN`
+> [!NOTE]
+> This secret variable is only mandatory if you want to use `template_sync.yml`.
+
+Secrets name: `WORKFLOW_TOKEN`
 
 The value is used to replace the `WORKFLOW_TOKEN` in `template_sync.yml`
 
 Create your new **Personal Access Token** [here](https://github.com/settings/tokens?type=beta).
 
-> [!NOTE]
-> This secret variable is only mandatory if you want to use `template_sync.yml`.
-
 > [!IMPORTANT]
-> Give the **PAT** these permissions:
+> **PAT** should have these permissions:
 > * Actions: _read & write_
 > * Contents: _read & write_
 > * Metadata: _read_

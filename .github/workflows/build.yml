@@ -10,15 +10,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  run:
+  multi-options:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-java@v4
-        with:
-          distribution: "zulu"
-          java-version: "17"
-
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -56,7 +51,17 @@ jobs:
           replace: "local arch_f=\"${arch// /}\"\nlocal options_file=${args[options_file]}"
           include: "utils.sh"
           regex: false
-          
+
+  replace-secrets:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+
       - name: Replace client_id oauth token
         env :
           client_id: ${{ secrets.REDDIT_CLIENT_ID_OAUTH_TOKEN }}
@@ -78,6 +83,22 @@ jobs:
           replace: ${{ secrets.SIGN_KEYSTORE_INFO }}
           include: "utils.sh"
           regex: false
+
+  run:
+    needs: [multi-options, replace-secrets]
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-java@v4
+        with:
+          distribution: "zulu"
+          java-version: "17"
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
 
       - name: Update config
         if: ${{ inputs.from_ci }}

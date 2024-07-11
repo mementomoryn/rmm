@@ -57,21 +57,32 @@ jobs:
           include: "utils.sh"
           regex: false
 
-      - name: Replace client_id oauth token [replace-secrets]
-        env :
-          infinity-ci: ${{ secrets.INFINITY_CLIENT_ID }}
-          sync-ci: ${{ secrets.SYNC_CLIENT_ID }}
-          boost-ci: ${{ secrets.BOOST_CLIENT_ID }}
+      - name: Check client_id secrets
+        id: check_client_id
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          infinity: ${{ secrets.INFINITY_CLIENT_ID }}
+          sync: ${{ secrets.SYNC_CLIENT_ID }}
+          boost: ${{ secrets.BOOST_CLIENT_ID }}
+        run: |
+          if [${{ env.infinity != "" || env.sync != "" || env.boost != "" }]; then
+            echo "AVAILABLE=1" >> $GITHUB_OUTPUT
+          else
+            echo "AVAILABLE=0" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Replace client_id oauth token [replace-secrets]     
         uses: cschleiden/replace-tokens@v1
-        if: ${{ env.infinity-ci != '' || env.sync-ci != '' || env.boost-ci != '' }}
+        if: ${{ steps.check_client_id.outputs.AVAILABLE == 1 }}
         with:
           tokenPrefix: '${'
           tokenSuffix: '}'
           files: '["*.json"]'
-        env:
-          INFINITY_CLIENT_ID: ${{ env.infinity-ci }}
-          SYNC_CLIENT_ID: ${{ env.sync-ci }}
-          BOOST_CLIENT_ID: ${{ env.boost-ci }}
+        env :
+          INFINITY_CLIENT_ID: ${{ secrets.INFINITY_CLIENT_ID }}
+          SYNC_CLIENT_ID: ${{ secrets.SYNC_CLIENT_ID }}
+          BOOST_CLIENT_ID: ${{ secrets.BOOST_CLIENT_ID }}
 
       - name: Replace signing keystore info [replace-secrets]
         env :

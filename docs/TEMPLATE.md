@@ -118,7 +118,7 @@ Create your own **Reddit API** token [here](https://www.reddit.com/prefs/apps).
     "options": [
       {
         "key": "client-id",
-        "value": "${REDDIT_CLIENT_ID_OAUTH_TOKEN}"
+        "value": "${<REDDIT>_CLIENT_ID}"
       }
     ]
   }

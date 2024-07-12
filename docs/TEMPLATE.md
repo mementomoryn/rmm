@@ -179,10 +179,12 @@ The value is used to replace the keystore info in `utils.sh`
 > The value must follow this template:
 >
 > `--keystore-entry-password=<password> --keystore-password=<password> --signer=mementomoryn --keystore-entry-alias=<alias>`
->
-> Examples of keystore following the template:
->
-> `--keystore-entry-password=s3cur3p@ssw0rd --keystore-password=s3cur3p@ssw0rd --signer=mementomoryn --keystore-entry-alias=alias`
+
+Examples of keystore following the template:
+
+```
+--keystore-entry-password=s3cur3p@ssw0rd --keystore-password=s3cur3p@ssw0rd --signer=mementomoryn --keystore-entry-alias=alias
+```
 
 ### Workflow Token
 > [!NOTE]

@@ -130,7 +130,9 @@ Create your own **Reddit API** client ID [here](https://www.reddit.com/prefs/app
 > The `redirect URI` value must match this:
 > * Infinity: `infinity://localhost`
 > * Sync: `http://redditsync/auth`
-> * Boost: `http://rubenmayayo.com` 
+> * Boost: `http://rubenmayayo.com`
+>
+> More can be found [here](https://revanced.app/patches?s=Spoof+Client+ID).
 
 Examples of how to use this on `<options_file>.json`:
 

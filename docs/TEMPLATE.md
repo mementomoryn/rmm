@@ -197,7 +197,7 @@ The value is used to replace the `WORKFLOW_TOKEN` in `template_sync.yml`
 Create your new **Personal Access Token** [here](https://github.com/settings/tokens?type=beta).
 
 > [!IMPORTANT]
-> **PAT** should have these permissions:
+> **PAT** should atleast have these permissions:
 > * Actions: _read & write_
 > * Contents: _read & write_
 > * Metadata: _read_

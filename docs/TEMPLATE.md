@@ -120,12 +120,19 @@ Secrets name that are already pre-configured on the workflow:
 * Sync: `SYNC_CLIENT_ID`
 * Boost: `BOOST_CLIENT_ID`
 
-The value is used to replace `client-id` value in `options.json` with the secrets.
+The value is used to replace `client-id` value in `<options_file>.json` with the secrets.
 
-Create your own **Reddit API** token [here](https://www.reddit.com/prefs/apps).
+Create your own **Reddit API** client ID [here](https://www.reddit.com/prefs/apps).
 
 > [!IMPORTANT]
-> The `redirect URI` value must match with _third party reddit apps_ you want to patch.
+> The `application_type` has to be `installed app`
+>
+> The `redirect URI` value must match this:
+> * Infinity: `infinity://localhost`
+> * Sync: `http://redditsync/auth`
+> * Boost: `http://rubenmayayo.com` 
+
+Examples of how to use this on `<options_file>.json`:
 
 ```
   {

@@ -57,7 +57,7 @@ jobs:
           include: "utils.sh"
           regex: false
 
-      - name: Check client_id secrets
+      - name: Check CLIENT_ID secrets [client-id]
         id: check_client_id
         shell: bash
         env:
@@ -69,7 +69,7 @@ jobs:
         run: |
           echo "AVAILABLE=1" >> $GITHUB_OUTPUT
 
-      - name: Replace client_id oauth token [replace-secrets]     
+      - name: Replace client_id oauth token [client-id]     
         uses: cschleiden/replace-tokens@v1
         if: ${{ steps.check_client_id.outputs.AVAILABLE == 1 }}
         with:
@@ -81,7 +81,7 @@ jobs:
           SYNC_CLIENT_ID: ${{ secrets.SYNC_CLIENT_ID }}
           BOOST_CLIENT_ID: ${{ secrets.BOOST_CLIENT_ID }}
 
-      - name: Replace signing keystore info [replace-secrets]
+      - name: Replace signing keystore info
         env :
           keystore_info: ${{ secrets.SIGN_KEYSTORE_INFO }}
         uses: jacobtomlinson/gha-find-replace@v3

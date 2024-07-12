@@ -10,7 +10,7 @@
   * [Build](#build)
   * [Template Sync](#template-sync)
 * [Secrets](#secrets)
-  * [Reddit Client ID Spoof](#reddit-client-id-spoof)
+  * [Reddit Spoof Client ID](#reddit-spoof-client-id)
   * [Sign Keystore Info](#sign-keystore-info)
   * [Workflow Token](#workflow-token)
 
@@ -46,9 +46,25 @@ Open [`options.json`](../options.json), the _Key_ and _Value_ is based on `patch
 > [!TIP]
 > Examples of `patches.json` URL: `https://github.com/<repo_owner>/<patches_repo>/blob/<main_branch>/patches.json`
 
+Examples of how to create `<options_file>.json`:
+
 ```
+[
   {
-    "patchName": "<patch_name>",
+    "patchName": "<patch_name_1>",
+    "options": [
+      {
+        "key": "<options_key_1>",
+        "value": "<options_value_1>"
+      },
+      {
+        "key": "<options_key_2>",
+        "value": "<options_value_2>"
+      },
+    ]
+  },
+  {
+    "patchName": "<patch_name_2>",
     "options": [
       {
         "key": "<options_key_1>",
@@ -56,6 +72,7 @@ Open [`options.json`](../options.json), the _Key_ and _Value_ is based on `patch
       }
     ]
   }
+]
 ```
 
 ## Workflows
@@ -111,7 +128,7 @@ Go to [Actions secrets and variables](../../../settings/secrets/actions) and cre
 
 These secrets variables values are hidden and will not be able to be viewed, after you have created or edited it.
 
-### Reddit Client ID Spoof
+### Reddit Spoof Client ID
 > [!NOTE]
 > This secret variable is only mandatory if you want to use spoof client for third party reddit apps in `options.json`.
 
@@ -137,6 +154,7 @@ Create your own **Reddit API** client ID [here](https://www.reddit.com/prefs/app
 Examples of how to use this on `<options_file>.json`:
 
 ```
+[
   {
     "patchName": "Spoof client",
     "options": [
@@ -146,6 +164,7 @@ Examples of how to use this on `<options_file>.json`:
       }
     ]
   }
+]
 ```
 
 ### Sign Keystore Info

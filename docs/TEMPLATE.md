@@ -149,7 +149,7 @@ Create your own **Reddit API** client ID [here](https://www.reddit.com/prefs/app
 > * Sync: `http://redditsync/auth`
 > * Boost: `http://rubenmayayo.com`
 >
-> More can be found [here](https://revanced.app/patches?s=Spoof+Client+ID).
+> More info can be found [here](https://revanced.app/patches?s=Spoof+Client+ID).
 
 Examples of how to use this on `<options_file>.json`:
 

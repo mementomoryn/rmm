@@ -60,7 +60,7 @@ Examples of how to create `<options_file>.json`:
       {
         "key": "<options_key_2>",
         "value": "<options_value_2>"
-      },
+      }
     ]
   },
   {

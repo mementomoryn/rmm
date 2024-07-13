@@ -51,9 +51,11 @@ jobs:
 
       - name: Add local options_file [multi-options]
         uses: jacobtomlinson/gha-find-replace@v3
+        env:
+          before: local arch_f=\"${arch// /}\"
         with:
-          find: "local arch_f=\"${arch// /}\""
-          replace: "local arch_f=\"${arch// /}\"\nlocal options_file=${args[options_file]}"
+          find: "${{ env.before }}"
+          replace: "${{ env.before }}\nlocal options_file=${args[options_file]}"
           include: "utils.sh"
           regex: false
 

@@ -27,17 +27,21 @@ jobs:
 
       - name: Add DEF_OPTIONS_FILE [multi-options]
         uses: jacobtomlinson/gha-find-replace@v3
+        env:
+          before: DEF_RV_BRAND="ReVanced"
         with:
-          find: "DEF_RV_BRAND=\"ReVanced\""
-          replace: "DEF_RV_BRAND=\"ReVanced\"\nDEF_OPTIONS_FILE=$(toml_get \"$main_config_t\" options-file) || DEF_OPTIONS_FILE=\"options.json\""
+          find: ${{ env.before }}
+          replace: "${{ env.before }}\nDEF_OPTIONS_FILE=$(toml_get \"$main_config_t\" options-file) || DEF_OPTIONS_FILE=\"options.json\""
           include: "build.sh"
           regex: false
 
       - name: Add app_args-options_file [multi-options]
         uses: jacobtomlinson/gha-find-replace@v3
+        env:
+          before: app_args[rv_brand]="$DEF_RV_BRAND"
         with:
-          find: "app_args[rv_brand]=\"$DEF_RV_BRAND\""
-          replace: "app_args[rv_brand]=\"$DEF_RV_BRAND\"\napp_args[options_file]=$(toml_get \"$t\" options-file) || app_args[options_file]=\"$DEF_OPTIONS_FILE\""
+          find: ${{ env.before }}
+          replace: "${{ env.before }}\napp_args[options_file]=$(toml_get \"$t\" options-file) || app_args[options_file]=\"$DEF_OPTIONS_FILE\""
           include: "build.sh"
           regex: false
 
@@ -52,7 +56,7 @@ jobs:
       - name: Add local options_file [multi-options]
         uses: jacobtomlinson/gha-find-replace@v3
         env:
-          before: local arch_f=\"${arch// /}\"
+          before: local arch_f="${arch// /}"
         with:
           find: ${{ env.before }}
           replace: "${{ env.before }}\nlocal options_file=${args[options_file]}"
@@ -145,7 +149,7 @@ jobs:
           body: ${{ steps.get_output.outputs.BUILD_LOG }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./build/*
-          release_name: Build v${{ steps.next_ver_code.outputs.NEXT_VER_CODE }} (${{ steps.date.outputs.CURRENT_DATE }})
+          release_name: Build v${{ steps.next_ver_code.outputs.NEXT_VER_CODE }} [${{ steps.date.outputs.CURRENT_DATE }}]
           tag: ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
           file_glob: true
           overwrite: true

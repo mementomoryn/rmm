@@ -145,7 +145,7 @@ jobs:
           DELIM="$(openssl rand -hex 8)"
           {
             echo "BUILD_LOG<<${DELIM}"
-            echo "# [${{ steps.inc_version.outputs.version }}](../../compare/${{ steps.inc_version.outputs.current-v-version }}...${{ steps.inc_version.outputs.v-version }}) <sub><sup>[ ${{ steps.date.outputs.CURRENT_DATE }} ]</sub></sup>"
+            echo "# [${{ steps.inc_version.outputs.version }}](../../compare/${{ steps.inc_version.outputs.current-v-version }}...${{ steps.inc_version.outputs.v-version }}) (${{ steps.date.outputs.CURRENT_DATE }})"
             cat build.md
             echo "${DELIM}"
           } >> "$GITHUB_OUTPUT"

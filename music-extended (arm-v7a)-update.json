@@ -1,6 +1,6 @@
 {
   "version": "v7.08.52",
-  "versionCode": 1,
-  "zipUrl": "https://github.com/mementomoryn/rmm/releases/download/1/music-revanced-extended-magisk-v7.08.52-arm-v7a.zip",
+  "versionCode": v2024.7.1-pre.11c5cf1,
+  "zipUrl": "https://github.com/mementomoryn/rmm/releases/download/v2024.7.1-pre.11c5cf1/music-revanced-extended-magisk-v7.08.52-arm-v7a.zip",
   "changelog": "https://raw.githubusercontent.com/mementomoryn/rmm/update/build.md"
 }

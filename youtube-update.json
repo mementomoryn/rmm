@@ -1,6 +1,6 @@
 {
   "version": "v19.16.39",
-  "versionCode": 1,
-  "zipUrl": "https://github.com/mementomoryn/rmm/releases/download/1/youtube-revanced-magisk-v19.16.39-all.zip",
+  "versionCode": v2024.7.1-pre.11c5cf1,
+  "zipUrl": "https://github.com/mementomoryn/rmm/releases/download/v2024.7.1-pre.11c5cf1/youtube-revanced-magisk-v19.16.39-all.zip",
   "changelog": "https://raw.githubusercontent.com/mementomoryn/rmm/update/build.md"
 }

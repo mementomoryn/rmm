@@ -117,7 +117,7 @@ jobs:
       - name: Get next version code [version]
         id: next_ver_code
         run: |
-          echo "NEXT_VER_CODE=$((${{ steps.inc_version.outputs.v-version }}))" >> $GITHUB_OUTPUT
+          echo "NEXT_VER_CODE=${{ steps.inc_version.outputs.v-version }}" >> $GITHUB_OUTPUT
 
       - name: Build modules/APKs
         run: ./build.sh config.toml

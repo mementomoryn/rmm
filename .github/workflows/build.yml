@@ -102,14 +102,19 @@ jobs:
             fi
           fi
 
-      - name: Get next version code
+      - name: Get next version code [version]
+        uses: reecetech/version-increment@2024.4.3
         id: next_ver_code
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          TAG=$(gh release list -L 1 | awk -F '\t' '{print $3}')
-          if [ -z "$TAG" ]; then TAG=0; fi
-          echo "NEXT_VER_CODE=$((TAG + 1))" >> $GITHUB_OUTPUT
+        with:
+          scheme: calver
+
+      - name: Replace NEXT_VER_CODE [version]
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "outputs.NEXT_VER_CODE"
+          replace: "outputs.v-version"
+          include: ".github/workflows/build.yml"
+          regex: false
 
       - name: Build modules/APKs
         run: ./build.sh config.toml
@@ -130,7 +135,7 @@ jobs:
       - name: Get current date
         id: date
         run: |
-          echo "CURRENT_DATE=$(date +%d-%m-%Y)" >> "$GITHUB_OUTPUT"
+          echo "CURRENT_DATE=$(date +%d)" >> "$GITHUB_OUTPUT"
 
       - name: Upload modules to release
         uses: svenstaro/upload-release-action@v2

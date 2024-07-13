@@ -122,7 +122,7 @@ jobs:
       - name: Get current date
         id: date
         run: |
-          echo "CURRENT_DATE=$(date +%d)" >> "$GITHUB_OUTPUT"
+          echo "CURRENT_DATE=$(date +%d%20%B)" >> "$GITHUB_OUTPUT"
 
       - name: Build modules/APKs
         run: ./build.sh config.toml
@@ -137,7 +137,7 @@ jobs:
           DELIM="$(openssl rand -hex 8)"
           {
             echo "BUILD_LOG<<${DELIM}"
-            echo "## [${{ steps.inc_version.outputs.version }}](../../../../compare/${{ steps.inc_version.outputs.current-v-version }}...${{ steps.inc_version.outputs.v-version }}) [${{ steps.date.outputs.CURRENT_DATE }}]"
+            echo "# [${{ steps.inc_version.outputs.version }}](../../compare/${{ steps.inc_version.outputs.current-v-version }}...${{ steps.inc_version.outputs.v-version }}) <sub><sup>[ ${{ steps.date.outputs.CURRENT_DATE }} ]</sub></sup>"
             cat build.md
             echo "${DELIM}"
           } >> "$GITHUB_OUTPUT"

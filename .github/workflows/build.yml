@@ -109,25 +109,17 @@ jobs:
           fi
 
       - name: Get next version code [version]
-        uses: reecetech/version-increment@2024.4.3
         id: next_ver_code
+        uses: reecetech/version-increment@2024.4.3
         with:
           scheme: calver
-
-      - name: Replace NEXT_VER_CODE [version]
-        uses: jacobtomlinson/gha-find-replace@v3
-        with:
-          find: "outputs.NEXT_VER_CODE"
-          replace: "outputs.v-version"
-          include: ".github/workflows/build.yml"
-          regex: false
 
       - name: Build modules/APKs
         run: ./build.sh config.toml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: $GITHUB_REPOSITORY
-          NEXT_VER_CODE: ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
+          NEXT_VER_CODE: ${{ steps.next_ver_code.outputs.v-version }}
 
       - name: Get output
         id: get_output
@@ -149,8 +141,8 @@ jobs:
           body: ${{ steps.get_output.outputs.BUILD_LOG }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./build/*
-          release_name: Build v${{ steps.next_ver_code.outputs.NEXT_VER_CODE }} [${{ steps.date.outputs.CURRENT_DATE }}]
-          tag: ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
+          release_name: ${{ steps.next_ver_code.outputs.v-version }} [${{ steps.date.outputs.CURRENT_DATE }}]
+          tag: ${{ steps.next_ver_code.outputs.v-version }}
           file_glob: true
           overwrite: true
 
@@ -162,7 +154,7 @@ jobs:
           get_update_json() {
             echo "{
             \"version\": \"$1\",
-            \"versionCode\": ${{ steps.next_ver_code.outputs.NEXT_VER_CODE}},
+            \"versionCode\": ${{ steps.next_ver_code.outputs.v-version }},
             \"zipUrl\": \"$2\",
             \"changelog\": \"https://raw.githubusercontent.com/$GITHUB_REPOSITORY/update/build.md\"
           }"
@@ -176,7 +168,7 @@ jobs:
             UPDATE_JSON="${UPDATE_JSON##*/}"
             VER=$(echo "$ZIP_S" | grep version=)
             VER="${VER##*=}"
-            DLURL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}/${OUTPUT}"
+            DLURL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${{ steps.next_ver_code.outputs.v-version }}/${OUTPUT}"
             get_update_json "$VER" "$DLURL" >"../$UPDATE_JSON"
           done
           cd ..
@@ -188,4 +180,4 @@ jobs:
           branch: update
           skip_checkout: true
           file_pattern: build.md *-update.json
-          commit_message: Bump version ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
+          commit_message: Bump version ${{ steps.next_ver_code.outputs.v-version }}

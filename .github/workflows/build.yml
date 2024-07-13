@@ -25,6 +25,14 @@ jobs:
           fetch-depth: 0
           submodules: true
 
+      - name: Replace user-agent header
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:108.0) Gecko/20100101 Firefox/108.0"
+          replace: "User-Agent: Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
+          include: "utils.sh"
+          regex: false
+
       - name: Add DEF_OPTIONS_FILE [multi-options]
         uses: jacobtomlinson/gha-find-replace@v3
         env:

@@ -55,7 +55,7 @@ jobs:
           before: local arch_f=\"${arch// /}\"
         with:
           find: ${{ env.before }}
-          replace: ${{ env.before }}"\nlocal options_file=${args[options_file]}"
+          replace: "${{ env.before }}\nlocal options_file=${args[options_file]}"
           include: "utils.sh"
           regex: false
 

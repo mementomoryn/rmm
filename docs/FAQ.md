@@ -3,7 +3,7 @@
 ## 📜 Table of contents
 
 * [What is this repository?](#what-is-this-repository)
-* [What are the features of this fork?](#what-are-the-features-of-this-fork)
+* [What are the unique features of this fork?](#what-are-the-unique-features-of-this-fork)
 * [Why there are no releases?](#why-there-are-no-releases-like-on-the-j-hc-repo)
 * [What makes this one safe?](#revanced-surely-discouraged-pre-patched-apks-so-what-makes-this-one-safe)
 * [How to make feature requests or contributions?](#how-to-make-feature-requests-or-contributes-to-the-repository)
@@ -15,7 +15,7 @@ This is a fork based on [j-hc/revanced-magisk-module repo](https://github.com/j-
 > [!NOTE]
 > This is just a personal fork. I can't guarantee you stability, because i'm only working on this when i've the time.
 
-## What are the features of this fork?
+## What are the unique features of this fork?
 
 There isn't much, but these are some features that i like:
 

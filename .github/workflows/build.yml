@@ -81,7 +81,7 @@ jobs:
         with:
           tokenPrefix: '${'
           tokenSuffix: '}'
-          files: '["*.json"]'
+          files: '["*options.json"]'
         env :
           INFINITY_CLIENT_ID: ${{ secrets.INFINITY_CLIENT_ID }}
           SYNC_CLIENT_ID: ${{ secrets.SYNC_CLIENT_ID }}

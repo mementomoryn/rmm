@@ -122,7 +122,7 @@ jobs:
       - name: Get current date
         id: date
         run: |
-          echo "CURRENT_DATE=$(date +%d %B)" >> "$GITHUB_OUTPUT"
+          echo "CURRENT_DATE=$(date +%d)" >> "$GITHUB_OUTPUT"
 
       - name: Build modules/APKs
         run: ./build.sh config.toml

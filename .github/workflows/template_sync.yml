@@ -30,7 +30,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           source_repo_path: ${{ env.SOURCE_REPO_PATH }}
           upstream_branch: ${{ env.UPSTREAM_BRANCH }}
-          pr_title: chore(template_sync): Auto merge new changes from ${{ env.SOURCE_REPO_PATH }}
+          pr_title: "chore(template_sync): Auto merge new changes from ${{ env.SOURCE_REPO_PATH }}"
           pr_body: >
             Template synced from [`${{ env.SOURCE_REPO_PATH }}@${TEMPLATE_GIT_HASH}` repository](https://github.com/${{ env.SOURCE_REPO_PATH }}/tree/${TEMPLATE_GIT_HASH}) on branch `${{ env.UPSTREAM_BRANCH }}`.
 
@@ -46,5 +46,5 @@ jobs:
             </details>
           pr_labels: template_sync
           pr_reviewers: mementomoryn
-          pr_commit_msg: chore(template_sync): commit new template changes from ${{ env.SOURCE_REPO_PATH }}
+          pr_commit_msg: "chore(template_sync): commit new template changes from ${{ env.SOURCE_REPO_PATH }}"
           is_force_push_pr: true

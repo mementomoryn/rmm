@@ -23,21 +23,28 @@ jobs:
         uses: AndreasAugustin/actions-template-sync@v2
         env:
           workflow_token: ${{ secrets.WORKFLOW_TOKEN }}
+          SOURCE_REPO_PATH: mementomoryn/rmm
+          UPSTREAM_BRANCH: main
         if: ${{ env.workflow_token != '' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          source_repo_path: mementomoryn/rmm
-          upstream_branch: main
-          pr_title: chore(template_sync): Auto merge new changes from ${SOURCE_REPO_PATH}
+          source_repo_path: ${{ env.SOURCE_REPO_PATH }}
+          upstream_branch: ${{ env.UPSTREAM_BRANCH }}
+          pr_title: chore(template_sync): Auto merge new changes from ${{ env.SOURCE_REPO_PATH }}
           pr_body: >
-            Template synced from [`${SOURCE_REPO_PATH}@${TEMPLATE_GIT_HASH}` repository](https://github.com/${SOURCE_REPO_PATH}/tree/${TEMPLATE_GIT_HASH}).
+            Template synced from [`${{ env.SOURCE_REPO_PATH }}@${TEMPLATE_GIT_HASH}` repository](https://github.com/${{ env.SOURCE_REPO_PATH }}/tree/${TEMPLATE_GIT_HASH}) on branch `${{ env.UPSTREAM_BRANCH }}`.
 
-            <details><summary><code>Workflow metadata</code></summary>
 
-            > [Auto-generated on run `#${{ github.run_id }}`](${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}) by `${{ github.job }}` job from [`template_sync.yaml`](${{ github.event.repository.html_url }}/blob/${{ github.sha }}/.github/workflows/template_sync.yaml) workflow.
+            <details><summary>Workflow metadata info:</summary>
+
+
+            > [Auto-generated on run `#${{ github.run_id }}`](${{ github.event.repository.html_url }}/actions/runs/${{
+            github.run_id }}) by `${{ github.job }}` job from [`template_sync.yaml`](${{ github.event.repository.html_url
+            }}/blob/${{ github.sha }}/.github/workflows/template_sync.yaml) workflow.
+
 
             </details>
           pr_labels: template_sync
           pr_reviewers: mementomoryn
-          pr_commit_msg: chore(template_sync): commit new template changes from ${SOURCE_REPO_PATH}
+          pr_commit_msg: chore(template_sync): commit new template changes from ${{ env.SOURCE_REPO_PATH }}
           is_force_push_pr: true

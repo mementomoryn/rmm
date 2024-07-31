@@ -32,7 +32,7 @@ jobs:
           upstream_branch: ${{ env.UPSTREAM_BRANCH }}
           pr_title: "chore(template_sync): Auto merge new changes from ${{ env.SOURCE_REPO_PATH }}"
           pr_body: >
-            Template synced from [`${{ env.SOURCE_REPO_PATH }}@${TEMPLATE_GIT_HASH}` repository](https://github.com/${{ env.SOURCE_REPO_PATH }}/tree/${TEMPLATE_GIT_HASH}) on branch `${{ env.UPSTREAM_BRANCH }}`.
+            Template synced from branch `${{ env.UPSTREAM_BRANCH }} on `[`${{ env.SOURCE_REPO_PATH }}@${TEMPLATE_GIT_HASH}`](https://github.com/${{ env.SOURCE_REPO_PATH }}/tree/${TEMPLATE_GIT_HASH}) repository.
 
 
             <details><summary>Workflow metadata info:</summary>

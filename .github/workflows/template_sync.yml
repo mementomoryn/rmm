@@ -32,18 +32,7 @@ jobs:
           upstream_branch: ${{ env.UPSTREAM_BRANCH }}
           pr_title: "chore(template_sync): Auto merge new changes from ${{ env.SOURCE_REPO_PATH }}"
           pr_body: >
-            Template synced from branch `${{ env.UPSTREAM_BRANCH }} on `[`${{ env.SOURCE_REPO_PATH }}@${TEMPLATE_GIT_HASH}`](https://github.com/${{ env.SOURCE_REPO_PATH }}/tree/${TEMPLATE_GIT_HASH}) repository.
-
-
-            <details><summary>Workflow metadata info:</summary>
-
-
-            > [Auto-generated on run `#${{ github.run_id }}`](${{ github.event.repository.html_url }}/actions/runs/${{
-            github.run_id }}) by `${{ github.job }}` job from [`template_sync.yaml`](${{ github.event.repository.html_url
-            }}/blob/${{ github.sha }}/.github/workflows/template_sync.yaml) workflow.
-
-
-            </details>
+            Auto-generated pull request merge from branch `${{ env.UPSTREAM_BRANCH }} on `[`${{ env.SOURCE_REPO_PATH }}@${TEMPLATE_GIT_HASH}`](https://github.com/${{ env.SOURCE_REPO_PATH }}/tree/${TEMPLATE_GIT_HASH}) repository.
           pr_labels: template_sync
           pr_reviewers: mementomoryn
           pr_commit_msg: "chore(template_sync): commit new template changes from ${{ env.SOURCE_REPO_PATH }}"

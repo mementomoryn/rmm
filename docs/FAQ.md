@@ -21,7 +21,7 @@ There isn't much, but these are some features that i like:
 
 * Repository Syncing
 
-Upstream: sync from `j-hc/revanced-magisk-module`
+Upstream: sync from `j-hc/revanced-magisk-module` [TODO]
 
 Template: sync from `mementomoryn/rmm`
 
@@ -38,7 +38,9 @@ Template: sync from `mementomoryn/rmm`
 
 * Use custom `options.json` file per-app in `config.toml`
 
-* CalVer, increment release version based on calendar.
+* **CalVer**, increment release version based on calendar.
+
+* Automatically clear old workflow runs _weekly_.
 
 ## Why there are no releases like on the [j-hc repo](https://github.com/j-hc/revanced-magisk-module)?
 

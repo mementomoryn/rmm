@@ -33,6 +33,9 @@ Automatically build APKs with patches of [ReVanced](https://github.com/ReVanced/
 [![GitHub Actions Workflow Template](https://img.shields.io/badge/Template-Status-444444?style=for-the-badge&logo=github%20actions&logoColor=FFFFFF&label=Template&labelColor=444444&color=405898)
 ](../../actions/workflows/template_sync.yml)
 
+[![GitHub Actions Workflow Clear](https://img.shields.io/badge/CI-Status-444444?style=for-the-badge&logo=github%20actions&logoColor=FFFFFF&label=Clear&labelColor=444444&color=405898)
+](../../actions/workflows/clear.yml)
+
 [![GitHub Actions Workflow Build](https://img.shields.io/badge/CI-Status-444444?style=for-the-badge&logo=github%20actions&logoColor=FFFFFF&label=Build&labelColor=444444&color=405898)
 ](../../actions/workflows/build.yml)
 

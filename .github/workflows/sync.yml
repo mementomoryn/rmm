@@ -22,8 +22,8 @@ jobs:
         target_repo_token: ${{ secrets.GITHUB_TOKEN }}
         upstream_sync_branch: main
         upstream_sync_repo: j-hc/revanced-magisk-module
-        upstream_pull_args: '-s recursive -Xours --allow-unrelated-histories'
-        shallow_since: 3 years ago
+        upstream_pull_args: '-s recursive -Xours --allow-unrelated-histories --unshallow'
+        # shallow_since: 2 years ago
 
     - name: New commits found
       if: steps.sync.outputs.has_new_commits == 'true'

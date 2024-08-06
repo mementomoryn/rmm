@@ -43,9 +43,9 @@ Open [`config.toml`](../config.toml), you can check [`CONFIG.md`](../CONFIG.md) 
 > [!TIP]
 > You can set to only build certain apps on the build workflow by adding this:
 > 
-> `enabled = "${<name>_ENABLED}"`
+> `enabled = "${<type>_ENABLED}"`
 > 
-> Preconfigured name on the workflow:
+> Pre-configured variant types on the workflow:
 > * REVANCED
 > * EXTENDED
 > * PIKO

@@ -122,8 +122,8 @@ jobs:
       - name: Set enabled in config.toml [config-enabled]
         uses: cschleiden/replace-tokens@v1
         with:
-          tokenPrefix: '\"${'
-          tokenSuffix: '}\"'
+          tokenPrefix: '"${'
+          tokenSuffix: '}"'
           files: '["config.toml"]'
         env:
           REVANCED_ENABLED: ${{ steps.enabled_config_status.outputs.REVANCED_ENABLED }}

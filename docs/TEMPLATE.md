@@ -30,7 +30,7 @@ Use this github pages by **j-hc** to generate both config and options easily:
 
 [![RVMM Config Generator](https://img.shields.io/badge/RVMM%20Config-Generate-444444?style=for-the-badge&logo=github%20pages&labelColor=444444&color=222333)](https://j-hc.github.io/rvmm-config-gen/)
 
-### CONFIG.toml
+### CONFIG
 Open [`config.toml`](../config.toml), you can check [`CONFIG.md`](../CONFIG.md) for more info about how to set it up.
 
 > [!TIP]
@@ -40,7 +40,7 @@ Open [`config.toml`](../config.toml), you can check [`CONFIG.md`](../CONFIG.md) 
 > 
 > Defaults to `options.json`.
 
-### OPTIONS.json
+### OPTIONS
 Open [`options.json`](../options.json), the _Key_ and _Value_ is based on `patches.json` of your ReVanced variant.
 
 > [!TIP]

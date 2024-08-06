@@ -12,7 +12,8 @@ jobs:
       with:
         ref: main
         # persist-credentials: false
-        fetch-depth: 0
+        # fetch-depth: 0
+        shallow_since: '3 years'
 
     - name: Sync upstream changes
       id: sync

@@ -13,11 +13,10 @@ jobs:
         ref: main
         # persist-credentials: false
         # fetch-depth: 0
-        shallow_since: '3 years'
 
     - name: Sync upstream changes
       id: sync
-      uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
+      uses: aormsby/Fork-Sync-With-Upstream-action@v3.1
       with:
         target_sync_branch: main
         target_repo_token: ${{ secrets.GITHUB_TOKEN }}

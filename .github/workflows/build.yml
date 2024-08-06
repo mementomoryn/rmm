@@ -20,7 +20,7 @@ on:
         description: Enable building Piko apps
       reddit_lemmy_enabled:
         type: boolean
-        description Enable building Reddit Third Party and Lemmy Client apps
+        description: Enable building Reddit Third Party and Lemmy Client apps
 
 jobs:
   run:

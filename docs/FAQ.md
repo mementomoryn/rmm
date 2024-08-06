@@ -42,6 +42,8 @@ Template: sync from `mementomoryn/rmm`
 
 * Automatically clear old workflow runs _weekly_.
 
+* Options to only enable some apps in [`build.yml`](../../../.github/workflows/build.yml) workflow
+
 ## Why there are no releases like on the [j-hc repo](https://github.com/j-hc/revanced-magisk-module)?
 
 It's kind of useless to continuously run CI workflow, when nobody will use the release APKs anyway. So unless there is other reasons, it'll probably stay that way.

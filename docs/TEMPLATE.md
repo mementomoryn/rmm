@@ -40,6 +40,19 @@ Open [`config.toml`](../config.toml), you can check [`CONFIG.md`](../CONFIG.md) 
 > 
 > Defaults to `options.json`.
 
+> [!TIP]
+> You can set to only build certain apps on the build workflow by adding this:
+> 
+> `enabled = "${<name>_ENABLED}"`
+> 
+> Preconfigured name on the workflow:
+> * REVANCED
+> * EXTENDED
+> * PIKO
+> * REDDIT_LEMMY
+> 
+> Defaults to `true` when you run `ci` workflow.
+
 ### OPTIONS
 Open [`options.json`](../options.json), the _Key_ and _Value_ is based on `patches.json` of your ReVanced variant.
 

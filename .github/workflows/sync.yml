@@ -25,7 +25,6 @@ jobs:
         upstream_sync_repo: j-hc/revanced-magisk-module
         upstream_pull_args: '-s recursive -Xours --allow-unrelated-histories --unshallow'
         shallow_since: 2 years ago
-        test_mode: true
 
     - name: New commits found
       if: steps.sync.outputs.has_new_commits == 'true'

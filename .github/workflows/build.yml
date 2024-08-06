@@ -8,6 +8,19 @@ on:
         default: true
 
   workflow_dispatch:
+    inputs:
+      revanced_enabled:
+        type: boolean
+        description: Enable building ReVanced Stock apps
+      extended_enabled:
+        type: boolean
+        description: Enable building ReVanced Extended apps
+      piko_enabled:
+        type: enabled
+        description: Enable building Piko apps
+      reddit_lemmy_enabled:
+        type: boolean
+        description Enable building Reddit Third Party and Lemmy Client apps
 
 jobs:
   run:
@@ -62,6 +75,36 @@ jobs:
           replace: "${{ env.before }}\nlocal options_file=${args[options_file]}"
           include: "utils.sh"
           regex: false
+
+      - name: Set enabled in config_toml  
+        uses: cschleiden/replace-tokens@v1
+        with:
+          tokenPrefix: '${'
+          tokenSuffix: '}'
+          files: '["config.toml"]'
+        run: |
+          if [ (${{ inputs.from_ci }} || (${{ inputs.revanced_enabled }} == true && ${{ inputs.extended_enabled }} == true && ${{ inputs.piko_enabled }} == true && ${{ inputs.reddit_lemmy_enabled }} == true) ]; then
+            echo "REVANCED_ENABLED=true" >> $GITHUB_ENV
+            echo "EXTENDED_ENABLED=true" >> $GITHUB_ENV
+            echo "PIKO_ENABLED=true" >> $GITHUB_ENV
+            echo "REDDIT_LEMMY_ENABLED=true" >> $GITHUB_ENV
+          fi
+
+          if [ ${{ inputs.revanced_enabled }} == true ]
+            echo "REVANCED_ENABLED=true" >> $GITHUB_ENV
+          fi
+
+          if [ ${{ inputs.extended_enabled }} == true ]
+            echo "EXTENDED_ENABLED=true" >> $GITHUB_ENV
+          fi
+
+          if [ ${{ inputs.piko_enabled }} == true ]
+            echo "PIKO_ENABLED=true" >> $GITHUB_ENV
+          fi
+
+          if [ ${{ inputs.reddit_lemmy_enabled }} == true ]
+            echo "REDDIT_LEMMMY_ENABLED=true" >> $GITHUB_ENV
+          fi
 
       - name: Check CLIENT_ID secrets [client-id]
         id: check_client_id

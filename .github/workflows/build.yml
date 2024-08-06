@@ -96,9 +96,7 @@ jobs:
             echo "EXTENDED_ENABLED=true" >> $GITHUB_OUTPUT
             echo "PIKO_ENABLED=true" >> $GITHUB_OUTPUT
             echo "REDDIT_LEMMY_ENABLED=true" >> $GITHUB_OUTPUT
-          fi
-          
-          if [ ${{ env.ci }} == '' ]; then
+          else
             if [ ${{ env.revanced }} == true ]; then
               echo "REVANCED_ENABLED=true" >> $GITHUB_OUTPUT
             else

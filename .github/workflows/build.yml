@@ -12,15 +12,19 @@ on:
       revanced_enabled:
         type: boolean
         description: Enable building ReVanced Stock apps
+        default: true
       extended_enabled:
         type: boolean
         description: Enable building ReVanced Extended apps
+        default: true
       piko_enabled:
-        type: enabled
+        type: boolean
         description: Enable building Piko apps
+        default: true
       reddit_lemmy_enabled:
         type: boolean
         description: Enable building Reddit Third Party and Lemmy Client apps
+        default: true
 
 jobs:
   run:
@@ -76,35 +80,58 @@ jobs:
           include: "utils.sh"
           regex: false
 
-      - name: Set enabled in config_toml  
+      - name: Set enabled config status [config-enabled]
+        id: enabled_config_status
+        shell: bash
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ci: ${{ inputs.from_ci }}
+          revanced: ${{ inputs.revanced_enabled }}
+          extended: ${{ inputs.extended_enabled }}
+          piko: ${{ inputs.piko_enabled }}
+          reddit_lemmy: ${{ inputs.reddit_lemmy_enabled }}
+        run: | 
+          if [ ${{ env.ci }} ]; then
+            echo "REVANCED_ENABLED=true" >> $GITHUB_OUTPUT
+            echo "EXTENDED_ENABLED=true" >> $GITHUB_OUTPUT
+            echo "PIKO_ENABLED=true" >> $GITHUB_OUTPUT
+            echo "REDDIT_LEMMY_ENABLED=true" >> $GITHUB_OUTPUT
+          fi
+          
+          if [ ${{ env.ci }} == '' ]; then
+            if [ ${{ env.revanced }} == true ]; then
+              echo "REVANCED_ENABLED=true" >> $GITHUB_OUTPUT
+            else
+              echo "REVANCED_ENABLED=false" >> $GITHUB_OUTPUT
+            fi
+            if [ ${{ env.extended }} == true ]; then
+              echo "EXTENDED_ENABLED=true" >> $GITHUB_OUTPUT
+            else
+              echo "EXTENDED_ENABLED=false" >> $GITHUB_OUTPUT
+            fi
+            if [ ${{ env.piko }} == true ]; then
+              echo "PIKO_ENABLED=true" >> $GITHUB_OUTPUT
+            else
+              echo "PIKO_ENABLED=false" >> $GITHUB_OUTPUT
+            fi
+            if [ ${{ env.reddit_lemmy }} == true ]; then
+              echo "REDDIT_LEMMMY_ENABLED=true" >> $GITHUB_OUTPUT
+            else
+              echo "REDDIT_LEMMY_ENABLED=false" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Set enabled in config.toml [config-enabled]
         uses: cschleiden/replace-tokens@v1
         with:
           tokenPrefix: '${'
           tokenSuffix: '}'
           files: '["config.toml"]'
-        run: |
-          if [ (${{ inputs.from_ci }} || (${{ inputs.revanced_enabled }} == true && ${{ inputs.extended_enabled }} == true && ${{ inputs.piko_enabled }} == true && ${{ inputs.reddit_lemmy_enabled }} == true) ]; then
-            echo "REVANCED_ENABLED=true" >> $GITHUB_ENV
-            echo "EXTENDED_ENABLED=true" >> $GITHUB_ENV
-            echo "PIKO_ENABLED=true" >> $GITHUB_ENV
-            echo "REDDIT_LEMMY_ENABLED=true" >> $GITHUB_ENV
-          fi
-
-          if [ ${{ inputs.revanced_enabled }} == true ]
-            echo "REVANCED_ENABLED=true" >> $GITHUB_ENV
-          fi
-
-          if [ ${{ inputs.extended_enabled }} == true ]
-            echo "EXTENDED_ENABLED=true" >> $GITHUB_ENV
-          fi
-
-          if [ ${{ inputs.piko_enabled }} == true ]
-            echo "PIKO_ENABLED=true" >> $GITHUB_ENV
-          fi
-
-          if [ ${{ inputs.reddit_lemmy_enabled }} == true ]
-            echo "REDDIT_LEMMMY_ENABLED=true" >> $GITHUB_ENV
-          fi
+        env:
+          REVANCED_ENABLED: ${{ steps.enabled_config_status.outputs.REVANCED_ENABLED }}
+          EXTENDED_ENABLED: ${{ steps.enabled_config_status.outputs.EXTENDED_ENABLED }}
+          PIKO_ENABLED: ${{ steps.enabled_config_status.outputs.PIKO_ENABLED }}
+          REDDIT_LEMMY_ENABLED: ${{ steps.enabled_config_status.outputs.REDDIT_LEMMY_ENABLED }}
 
       - name: Check CLIENT_ID secrets [client-id]
         id: check_client_id

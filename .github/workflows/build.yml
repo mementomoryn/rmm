@@ -11,19 +11,19 @@ on:
     inputs:
       revanced_enabled:
         type: boolean
-        description: Enable building ReVanced Stock apps
+        description: ReVanced Stock
         default: true
       extended_enabled:
         type: boolean
-        description: Enable building ReVanced Extended apps
+        description: ReVanced Extended
         default: true
       piko_enabled:
         type: boolean
-        description: Enable building Piko apps
+        description: Piko
         default: true
       reddit_lemmy_enabled:
         type: boolean
-        description: Enable building Reddit Third Party and Lemmy Client apps
+        description: Reddit Third Party and Lemmy Client
         default: true
 
 jobs:

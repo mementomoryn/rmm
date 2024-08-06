@@ -13,17 +13,18 @@ jobs:
         ref: main
         # persist-credentials: false
         # fetch-depth: 0
+        token: ${{ secrets.WORKFLOW_TOKEN }}
 
     - name: Sync upstream changes
       id: sync
       uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
       with:
         target_sync_branch: main
-        target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+        target_repo_token: ${{ secrets.WORKFLOW_TOKEN }}
         upstream_sync_branch: main
         upstream_sync_repo: j-hc/revanced-magisk-module
         upstream_pull_args: '-s recursive -Xours --allow-unrelated-histories --unshallow'
-        # shallow_since: 2 years ago
+        shallow_since: 2 month ago
 
     - name: New commits found
       if: steps.sync.outputs.has_new_commits == 'true'

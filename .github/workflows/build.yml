@@ -113,7 +113,7 @@ jobs:
               echo "PIKO_ENABLED=false" >> $GITHUB_OUTPUT
             fi
             if [ ${{ env.reddit_lemmy }} == true ]; then
-              echo "REDDIT_LEMMMY_ENABLED=true" >> $GITHUB_OUTPUT
+              echo "REDDIT_LEMMY_ENABLED=true" >> $GITHUB_OUTPUT
             else
               echo "REDDIT_LEMMY_ENABLED=false" >> $GITHUB_OUTPUT
             fi

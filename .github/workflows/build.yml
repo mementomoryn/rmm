@@ -6,7 +6,6 @@ on:
         type: boolean
         required: false
         default: true
-
   workflow_dispatch:
 
 jobs:
@@ -14,16 +13,91 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@main
         with:
           distribution: "zulu"
           java-version: "17"
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@main
         with:
           fetch-depth: 0
           submodules: true
+
+      - name: Add local options_file [multi-options]
+        uses: jacobtomlinson/gha-find-replace@master
+        env:
+          before: local arch_f="${arch// /}"
+        with:
+          find: ${{ env.before }}
+          replace: "${{ env.before }}\nlocal options_file=${args[options_file]}"
+          include: "utils.sh"
+          regex: false
+
+      - name: Replace options.json [multi-options]
+        uses: jacobtomlinson/gha-find-replace@master
+        with:
+          find: "--options=options.json"
+          replace: "--options=$options_file"
+          include: "utils.sh"
+          regex: false
+
+      - name: Add DEF_OPTIONS_FILE [multi-options]
+        uses: jacobtomlinson/gha-find-replace@master
+        env:
+          before: DEF_RV_BRAND=$(toml_get "$main_config_t" rv-brand) || DEF_RV_BRAND="ReVanced"
+          after: DEF_OPTIONS_FILE=$(toml_get "$main_config_t" options-file) || DEF_OPTIONS_FILE="options.json"
+        with:
+          find: ${{ env.before }}
+          replace: "${{ env.before }}\n${{ env.after }} "
+          include: "build.sh"
+          regex: false
+
+      - name: Add app_args-options_file [multi-options]
+        uses: jacobtomlinson/gha-find-replace@master
+        env:
+          before:         app_args[rv_brand]=$(toml_get "$t" rv-brand) || app_args[rv_brand]=$DEF_RV_BRAND
+          after:          app_args[options_file]=$(toml_get "$t" options-file) || app_args[options_file]="$DEF_OPTIONS_FILE"
+        with:
+          find: ${{ env.before }}
+          replace: "${{ env.before }}\n${{ env.after }}"
+          include: "build.sh"
+          regex: false
+
+      - name: Check CLIENT_ID secrets [client-id]
+        id: check_client_id
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          infinity: ${{ secrets.INFINITY_CLIENT_ID }}
+          sync: ${{ secrets.SYNC_CLIENT_ID }}
+          boost: ${{ secrets.BOOST_CLIENT_ID }}
+        if: ${{ env.infinity != '' || env.sync != '' || env.boost != '' }}
+        run: |
+          echo "AVAILABLE=1" >> $GITHUB_OUTPUT
+
+      - name: Replace client_id oauth token [client-id]     
+        uses: cschleiden/replace-tokens@master
+        if: ${{ steps.check_client_id.outputs.AVAILABLE == 1 }}
+        with:
+          tokenPrefix: '${'
+          tokenSuffix: '}'
+          files: '["*.json"]'
+        env :
+          INFINITY_CLIENT_ID: ${{ secrets.INFINITY_CLIENT_ID }}
+          SYNC_CLIENT_ID: ${{ secrets.SYNC_CLIENT_ID }}
+          BOOST_CLIENT_ID: ${{ secrets.BOOST_CLIENT_ID }}
+
+      - name: Replace signing keystore info
+        env :
+          keystore_info: ${{ secrets.SIGN_KEYSTORE_INFO }}
+        uses: jacobtomlinson/gha-find-replace@master
+        if: ${{ env.keystore_info != '' }}
+        with:
+          find: "--keystore-entry-password=123456789 --keystore-password=123456789 --signer=jhc --keystore-entry-alias=jhc"
+          replace: ${{ secrets.SIGN_KEYSTORE_INFO }}
+          include: "utils.sh"
+          regex: false
 
       - name: Update config
         if: ${{ inputs.from_ci }}
@@ -35,14 +109,21 @@ jobs:
             fi
           fi
 
-      - name: Get next version code
+      - name: Increment version [version]
+        id: inc_version
+        uses: reecetech/version-increment@main
+        with:
+          scheme: calver
+
+      - name: Get NEXT_VER_CODE [version]
         id: next_ver_code
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TAG=$(gh release list -L 1 | awk -F '\t' '{print $3}')
-          if [ -z "$TAG" ]; then TAG=0; fi
-          echo "NEXT_VER_CODE=$((TAG + 1))" >> $GITHUB_OUTPUT
+          echo "NEXT_VER_CODE=${{ steps.inc_version.outputs.v-version }}" >> $GITHUB_OUTPUT
+
+      - name: Get current date
+        id: date
+        run: |
+          echo "CURRENT_DATE=$(date +%d)" >> "$GITHUB_OUTPUT"
 
       - name: Build modules/APKs
         run: ./build.sh config.toml
@@ -55,18 +136,21 @@ jobs:
         id: get_output
         run: |
           DELIM="$(openssl rand -hex 8)"
-          echo "BUILD_LOG<<${DELIM}" >> "$GITHUB_OUTPUT"
-          cat build.md >> "$GITHUB_OUTPUT"
-          echo "${DELIM}" >> "$GITHUB_OUTPUT"
+          {
+            echo "BUILD_LOG<<${DELIM}"
+            echo "# [${{ steps.inc_version.outputs.version }}](../../compare/${{ steps.inc_version.outputs.current-v-version }}...${{ steps.inc_version.outputs.v-version }}) (${{ steps.date.outputs.CURRENT_DATE }})"
+            cat build.md
+            echo "${DELIM}"
+          } >> "$GITHUB_OUTPUT"
           cp -f build.md build.tmp
 
       - name: Upload modules to release
-        uses: svenstaro/upload-release-action@v2
+        uses: svenstaro/upload-release-action@master
         with:
-          body: ${{ steps.get_output.outputs.BUILD_LOG }}
+          body: "${{ steps.get_output.outputs.BUILD_LOG }}"
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./build/*
-          release_name: ReVanced
+          release_name: ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
           tag: ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
           file_glob: true
           overwrite: true
@@ -106,42 +190,3 @@ jobs:
           skip_checkout: true
           file_pattern: build.md *-update.json
           commit_message: Bump version ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
-
-      - name: Report to Telegram
-        env:
-          TG_TOKEN: ${{ secrets.TG_TOKEN }}
-        if: env.TG_TOKEN != null
-        run: |
-          cd build || { echo "build folder not found"; exit 1; }
-
-          TG_CHAT="@rvc_magisk"
-          NL=$'\n'
-          APKS=""
-          MODULES=""
-          for OUTPUT in *; do
-            DL_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}/${OUTPUT}"
-            if [[ $OUTPUT = *.apk ]]; then
-              APKS+="${NL}📦[${OUTPUT}](${DL_URL})"
-            elif [[ $OUTPUT = *.zip ]]; then
-              MODULES+="${NL}📦[${OUTPUT}](${DL_URL})"
-            fi
-          done
-          MODULES=${MODULES#"$NL"}
-          APKS=${APKS#"$NL"}
-
-          BODY="$(sed 's/^\* \*\*/↪ \*\*/g; s/^\* `/↪ \*\*/g; s/`/\*/g; s/^\* /\↪/g; s/\*\*/\*/g; s/###//g; s/^- /↪ /g; /^==/d;' ../build.md)"
-          MSG="*New build!*
-
-          ${BODY}
-
-          *▼ Download Links:*
-          Modules:
-          ${MODULES}
-
-          APKs:
-          ${APKS}
-          "
-          echo "'$MSG'"
-          MSG=${MSG:0:9450}
-          POST="https://api.telegram.org/bot${TG_TOKEN}/sendMessage"
-          curl -X POST --data-urlencode "parse_mode=Markdown" --data-urlencode "disable_web_page_preview=true" --data-urlencode "text=${MSG}" --data-urlencode "chat_id=${TG_CHAT}" "$POST"

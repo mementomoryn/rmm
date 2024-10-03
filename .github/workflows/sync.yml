@@ -1,0 +1,26 @@
+name: Upstream Sync
+on: 
+  schedule:
+    - cron: '0 16 * * *'
+  workflow_dispatch:
+      inputs:
+        force_sync:
+          description: "Hard reset repository sync"
+          required: false
+          type: boolean
+          default: false
+
+jobs:
+  merge-upstream:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - name: Sync Repo
+        run: |
+          if [ "${{ inputs.force_sync }}" == "true" ]; then
+            gh repo sync ${{ github.repository }} -b main --force
+          else
+            gh repo sync ${{ github.repository }} -b main
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}

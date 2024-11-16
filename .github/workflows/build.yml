@@ -52,7 +52,7 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@master
         with:
           find: 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:108.0) Gecko/20100101 Firefox/108.0'
-          replace: 'User-Agent: APKUpdater'
+          replace: 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:108.0) Gecko/20100101 Firefox/108.0 APKUpdater'
           include: 'utils.sh'
           regex: false
 

@@ -88,7 +88,7 @@ jobs:
           if git checkout origin/update build.md; then
             UPDATE_CFG=$(./build.sh config.toml --config-update)
             if [ "$UPDATE_CFG" ]; then
-              echo "$UPDATE_CFG" > config.toml
+              echo "$UPDATE_CFG" > config.json
             fi
           fi
 
@@ -109,7 +109,7 @@ jobs:
           echo "CURRENT_DATE=$(date +%d)" >> "$GITHUB_OUTPUT"
 
       - name: Build modules/APKs
-        run: ./build.sh config.toml
+        run: if [ -f "config.json" ]; then ./build.sh config.json; else ./build.sh config.toml; fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: $GITHUB_REPOSITORY

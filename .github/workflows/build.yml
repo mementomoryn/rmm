@@ -48,6 +48,14 @@ jobs:
           SYNC_CLIENT_ID: ${{ secrets.SYNC_CLIENT_ID }}
           BOOST_CLIENT_ID: ${{ secrets.BOOST_CLIENT_ID }}
 
+      - name: Replace user-agent header
+        uses: jacobtomlinson/gha-find-replace@master
+        with:
+          find: 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:108.0) Gecko/20100101 Firefox/108.0'
+          replace: 'User-Agent: APKUpdater'
+          include: 'utils.sh'
+          regex: false
+
       - name: Replace signing keystore info
         env:
           keystore_info: ${{ secrets.SIGN_KEYSTORE_INFO }}

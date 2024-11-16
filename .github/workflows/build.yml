@@ -15,54 +15,14 @@ jobs:
     steps:
       - uses: actions/setup-java@main
         with:
-          distribution: "zulu"
-          java-version: "17"
+          distribution: 'zulu'
+          java-version: '17'
 
       - name: Checkout
         uses: actions/checkout@main
         with:
           fetch-depth: 0
           submodules: true
-
-      - name: Add local options_file [multi-options]
-        uses: jacobtomlinson/gha-find-replace@master
-        env:
-          before: local arch_f="${arch// /}"
-        with:
-          find: ${{ env.before }}
-          replace: "${{ env.before }}\nlocal options_file=${args[options_file]}"
-          include: "utils.sh"
-          regex: false
-
-      - name: Replace options.json [multi-options]
-        uses: jacobtomlinson/gha-find-replace@master
-        with:
-          find: "--options=options.json"
-          replace: "--options=$options_file"
-          include: "utils.sh"
-          regex: false
-
-      - name: Add DEF_OPTIONS_FILE [multi-options]
-        uses: jacobtomlinson/gha-find-replace@master
-        env:
-          before: DEF_RV_BRAND=$(toml_get "$main_config_t" rv-brand) || DEF_RV_BRAND="ReVanced"
-          after: DEF_OPTIONS_FILE=$(toml_get "$main_config_t" options-file) || DEF_OPTIONS_FILE="options.json"
-        with:
-          find: ${{ env.before }}
-          replace: "${{ env.before }}\n${{ env.after }} "
-          include: "build.sh"
-          regex: false
-
-      - name: Add app_args-options_file [multi-options]
-        uses: jacobtomlinson/gha-find-replace@master
-        env:
-          before:         app_args[rv_brand]=$(toml_get "$t" rv-brand) || app_args[rv_brand]=$DEF_RV_BRAND
-          after:          app_args[options_file]=$(toml_get "$t" options-file) || app_args[options_file]="$DEF_OPTIONS_FILE"
-        with:
-          find: ${{ env.before }}
-          replace: "${{ env.before }}\n${{ env.after }}"
-          include: "build.sh"
-          regex: false
 
       - name: Check CLIENT_ID secrets [client-id]
         id: check_client_id
@@ -76,27 +36,27 @@ jobs:
         run: |
           echo "AVAILABLE=1" >> $GITHUB_OUTPUT
 
-      - name: Replace client_id oauth token [client-id]     
+      - name: Replace client_id oauth token [client-id]
         uses: cschleiden/replace-tokens@master
         if: ${{ steps.check_client_id.outputs.AVAILABLE == 1 }}
         with:
           tokenPrefix: '${'
           tokenSuffix: '}'
-          files: '["*.json"]'
-        env :
+          files: '["config.toml"]'
+        env:
           INFINITY_CLIENT_ID: ${{ secrets.INFINITY_CLIENT_ID }}
           SYNC_CLIENT_ID: ${{ secrets.SYNC_CLIENT_ID }}
           BOOST_CLIENT_ID: ${{ secrets.BOOST_CLIENT_ID }}
 
       - name: Replace signing keystore info
-        env :
+        env:
           keystore_info: ${{ secrets.SIGN_KEYSTORE_INFO }}
         uses: jacobtomlinson/gha-find-replace@master
         if: ${{ env.keystore_info != '' }}
         with:
-          find: "--keystore-entry-password=123456789 --keystore-password=123456789 --signer=jhc --keystore-entry-alias=jhc"
+          find: '--keystore-entry-password=123456789 --keystore-password=123456789 --signer=jhc --keystore-entry-alias=jhc'
           replace: ${{ secrets.SIGN_KEYSTORE_INFO }}
-          include: "utils.sh"
+          include: 'utils.sh'
           regex: false
 
       - name: Update config
@@ -147,7 +107,7 @@ jobs:
       - name: Upload modules to release
         uses: svenstaro/upload-release-action@master
         with:
-          body: "${{ steps.get_output.outputs.BUILD_LOG }}"
+          body: '${{ steps.get_output.outputs.BUILD_LOG }}'
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./build/*
           release_name: ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}

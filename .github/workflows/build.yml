@@ -48,6 +48,21 @@ jobs:
           SYNC_CLIENT_ID: ${{ secrets.SYNC_CLIENT_ID }}
           BOOST_CLIENT_ID: ${{ secrets.BOOST_CLIENT_ID }}
 
+      - name: Request latest version of APKEditor [apkeditor-version]
+        id: apkeditor
+        run: |
+          echo "URL=$(curl -s https://api.github.com/repos/REAndroid/APKEditor/releases/latest | grep browser_download_url | cut -d '"' -f 4)" >> $GITHUB_OUTPUT
+
+      - name: Use browser_download_url values [apkeditor-version]
+        uses: jacobtomlinson/gha-find-replace@master
+        env:
+          before: https://github.com/REAndroid/APKEditor/releases/download
+        with:
+          find: ${{ env.before }}/V\d+\.\d+\.\d+/APKEditor-.*\.jar
+          replace: ${{ steps.apkeditor.outputs.URL }}
+          include: 'utils.sh'
+          regex: true
+
       - name: Replace user-agent header
         uses: jacobtomlinson/gha-find-replace@master
         with:

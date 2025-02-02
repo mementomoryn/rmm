@@ -31,6 +31,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           infinity: ${{ secrets.INFINITY_CLIENT_ID }}
           sync: ${{ secrets.SYNC_CLIENT_ID }}
+          sync2: ${{ secrets.SYNC2_CLIENT_ID }}
           boost: ${{ secrets.BOOST_CLIENT_ID }}
         if: ${{ env.infinity != '' || env.sync != '' || env.boost != '' }}
         run: |
@@ -46,6 +47,7 @@ jobs:
         env:
           INFINITY_CLIENT_ID: ${{ secrets.INFINITY_CLIENT_ID }}
           SYNC_CLIENT_ID: ${{ secrets.SYNC_CLIENT_ID }}
+          SYNC2_CLIENT_ID: ${{ secrets.SYNC2_CLIENT_ID }}
           BOOST_CLIENT_ID: ${{ secrets.BOOST_CLIENT_ID }}
 
       - name: Request latest version of APKEditor [apkeditor-version]

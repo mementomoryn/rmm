@@ -129,6 +129,19 @@ jobs:
           } >> "$GITHUB_OUTPUT"
           cp -f build.md build.tmp
 
+      - name: Upload release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
+          BODY: ${{ steps.get_output.outputs.BUILD_LOG }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --title "Release" --notes "$BODY"
+            gh release upload "$TAG" ./build/* --clobber
+          else
+            gh release create "$TAG" ./build/* --title "Release" --notes "$BODY"
+          fi
+
       - name: Upload modules to release
         uses: svenstaro/upload-release-action@master
         with:
@@ -169,9 +182,55 @@ jobs:
 
           find . -name "*-update.json" | grep . || : >dummy-update.json
 
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          branch: update
-          skip_checkout: true
-          file_pattern: build.md *-update.json
-          commit_message: Bump version ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
+      - name: Commit module json changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add build.md *-update.json
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Bump version ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}"
+            git push origin HEAD:update
+          else
+            echo "no changes!"
+          fi
+
+      - name: Report to Telegram
+        env:
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+        if: env.TG_TOKEN != null
+        run: |
+          cd build || { echo "build folder not found"; exit 1; }
+
+          TG_CHAT="@rvc_magisk"
+          NL=$'\n'
+          APKS=""
+          MODULES=""
+          for OUTPUT in *; do
+            DL_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}/${OUTPUT}"
+            if [[ $OUTPUT = *.apk ]]; then
+              APKS+="${NL}📦[${OUTPUT}](${DL_URL})"
+            elif [[ $OUTPUT = *.zip ]]; then
+              MODULES+="${NL}📦[${OUTPUT}](${DL_URL})"
+            fi
+          done
+          MODULES=${MODULES#"$NL"}
+          APKS=${APKS#"$NL"}
+
+          BODY="$(sed 's/^\* \*\*/↪ \*\*/g; s/^\* `/↪ \*\*/g; s/`/\*/g; s/^\* /\↪/g; s/\*\*/\*/g; s/###//g; s/^- /↪ /g; /^==/d;' ../build.md)"
+          MSG="*New build!*
+
+          ${BODY}
+
+          *▼ Download Links:*
+          Modules:
+          ${MODULES}
+
+          APKs:
+          ${APKS}
+          "
+          echo "'$MSG'"
+          MSG=${MSG:0:9450}
+          POST="https://api.telegram.org/bot${TG_TOKEN}/sendMessage"
+          curl -X POST --data-urlencode "parse_mode=Markdown" --data-urlencode "disable_web_page_preview=true" --data-urlencode "text=${MSG}" --data-urlencode "chat_id=${TG_CHAT}" "$POST"

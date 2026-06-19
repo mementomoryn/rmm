@@ -47,8 +47,10 @@ wpr() {
 }
 abort() {
 	epr "ABORT: ${1-}"
-	rm -rf ./${TEMP_DIR}/*tmp.* ./${TEMP_DIR}/*/*tmp.* ./${TEMP_DIR}/*-temporary-files
-	kill -n 9 0
+	rm -rf ./${TEMP_DIR}/*tmp.* ./${TEMP_DIR}/*/*tmp.* ./${TEMP_DIR}/*-temporary-files ./*-temporary-files
+	trap - SIGTERM SIGINT EXIT
+	kill -- -$$ 2>/dev/null
+	exit 1
 }
 java() { env -i java --enable-native-access=ALL-UNNAMED "$@"; }
 
@@ -89,6 +91,11 @@ get_prebuilts() {
 
 		local url file tag_name matches
 		file=$(find "$dir" -name "*${fprefix}-${name_ver#v}.*" -type f 2>/dev/null)
+		if [ "$ver" = "latest" ]; then
+			file=$(grep -v '/[^/]*dev[^/]*$' <<<"$file" | head -1)
+		else
+			file=$(grep "/[^/]*${ver#v}[^/]*\$" <<<"$file" | head -1)
+		fi
 		if [ -z "$file" ]; then
 			local resp asset name
 			resp=$(gh_req "$rv_rel" -) || return 1
@@ -115,11 +122,6 @@ get_prebuilts() {
 			echo "$tag: $(cut -d/ -f1 <<<"$src")/${name}  " >>"${cl_dir}/changelog.md"
 		else
 			grab_cl=false
-			local for_err=$file
-			if [ "$ver" = "latest" ]; then
-				file=$(grep -v '/[^/]*dev[^/]*$' <<<"$file" | head -1)
-			else file=$(grep "/[^/]*${ver#v}[^/]*\$" <<<"$file" | head -1); fi
-			if [ -z "$file" ]; then abort "filter fail: '$for_err' with '$ver'"; fi
 			name=$(basename "$file")
 			tag_name=$(cut -d'-' -f3- <<<"$name")
 			tag_name=v${tag_name%.*}
@@ -242,7 +244,7 @@ get_highest_ver() {
 	local vers m
 	vers=$(tee)
 	m=$(head -1 <<<"$vers")
-	if ! semver_validate "$m"; then echo "$m"; else sort -rV <<<"$vers" | head -1; fi
+	if ! semver_validate "$m"; then echo "$m"; else sort -s -t- -k1,1Vr <<<"$vers" | head -1; fi
 }
 semver_validate() {
 	local a="${1%-*}"
@@ -541,8 +543,11 @@ get_direct_resp() { __DIRECT_APKNAME__=$(awk -F/ '{print $NF}' <<<"$1"); }
 
 patch_apk() {
 	local stock_input=$1 patched_apk=$2 patcher_args=$3 cli_jar=$4 patches_jar=$5
+	local tmp_files
+	tmp_files="$(pwd)/$(mktemp -d -p "$TEMP_DIR")"
+
 	local cmd="java -jar '$cli_jar' patch '$stock_input' --purge -o '$patched_apk' -p '$patches_jar' --keystore=ks.keystore \
---keystore-entry-password=123456789 --keystore-password=123456789 --signer=jhc --keystore-entry-alias=jhc $patcher_args"
+--keystore-entry-password=123456789 --keystore-password=123456789 --signer=jhc --keystore-entry-alias=jhc -t '$tmp_files' $patcher_args"
 
 	# TODO: remove this later
 	local cli_name
@@ -731,7 +736,7 @@ build_rv() {
 		fi
 
 		local apk_output="${BUILD_DIR}/${app_name_l}-${rv_brand_f}-v${version_f}-${arch_f}.apk"
-		if [ "${NORB:-}" = false ] || { [ ! -f "$patched_apk" ] && [ ! -f "$apk_output" ]; }; then
+		if [ "${NORB:-}" != true ] || { [ ! -f "$patched_apk" ] && [ ! -f "$apk_output" ]; }; then
 			if ! patch_apk "$stock_apk_to_patch" "$patched_apk" "${patcher_args[*]}" "${args[cli]}" "${args[ptjar]}"; then
 				epr "Building '${table}' failed!"
 				return 0
@@ -739,7 +744,7 @@ build_rv() {
 		fi
 		rm "$stock_apk_to_patch"
 		if [ "$build_mode" = apk ]; then
-			if [ "${NORB:-}" = false ] || { [ ! -f "$patched_apk" ] && [ ! -f "$apk_output" ]; }; then
+			if [ "${NORB:-}" != true ] || { [ ! -f "$patched_apk" ] && [ ! -f "$apk_output" ]; }; then
 				mv -f "$patched_apk" "$apk_output"
 			fi
 			pr "Built ${table} (non-root): '${apk_output}'"

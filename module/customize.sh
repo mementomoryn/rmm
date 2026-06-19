@@ -20,15 +20,10 @@ RVPATH=/data/adb/rvhc/${MODPATH##*/}.apk
 
 set_perm_recursive "$MODPATH/bin" 0 0 0755 0777
 
-mz grep -F "$PKG_NAME" /proc/mounts | while read -r line; do
+su -M -c grep -F "$PKG_NAME" /proc/mounts | while read -r line; do
 	ui_print "* Un-mount"
 	mp=${line#* } mp=${mp%% *}
-	mz umount -l "${mp%%\\*}"
-done
-mm grep -F "$PKG_NAME" /proc/mounts | while read -r line; do
-	ui_print "* Un-mount global"
-	mp=${line#* } mp=${mp%% *}
-	mm umount -l "${mp%%\\*}"
+	su -M -c umount -l "${mp%%\\*}"
 done
 am force-stop "$PKG_NAME"
 
@@ -169,7 +164,11 @@ umount -l $BASEPATH/base.apk
 " >/dev/null 2>&1 &
 
 ui_print "* Mounting $PKG_NAME"
-if ! op=$(mz mount "$RVPATH" "$BASEPATH/base.apk" 2>&1); then
+mkdir -p "/data/adb/rvhc"
+RVPATH=/data/adb/rvhc/${MODPATH##*/}.apk
+mv -f "$MODPATH/base.apk" "$RVPATH"
+
+if ! op=$(su -M -c mount -o bind "$RVPATH" "$BASEPATH/base.apk" 2>&1); then
 	ui_print "ERROR: Mount failed!"
 	ui_print "$op"
 fi
